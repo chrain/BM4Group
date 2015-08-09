@@ -11,13 +11,15 @@
 @interface BMPage : BMBaseModel
 
 @property (nonatomic, assign) NSUInteger pageCount;
-@property (nonatomic, assign) NSUInteger pageNo;
+@property (nonatomic, assign) NSInteger pageNo;
 @property (nonatomic, assign) NSUInteger pageSize;
 @property (nonatomic, assign) NSUInteger totalCount;
 
 /**
- *  生成一个默认的page对象，默认pageSize为10，pageNo为1;
+ *  生成一个默认的page对象，默认pageSize为15，pageNo为1;
  */
 + (instancetype)defaultPage;
+
+- (NSMutableDictionary *)nextPage;
 
 @end
