@@ -18,13 +18,6 @@
 - (NSString *)transformToPinyin;
 
 /**
- *  判断是字符串是否为空串，
- *
- *  @return yes表示为空
- */
-- (BOOL)isEmpty;
-
-/**
  *  是否为中文
  *
  */

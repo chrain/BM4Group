@@ -109,4 +109,18 @@
     return [formatter dateFromString:dateString];
 }
 
++ (BOOL)isEmptyString:(NSString *)str
+{
+    if (str == nil || str == NULL) {
+        return YES;
+    }
+    if ([str isKindOfClass:[NSNull class]]) {
+        return YES;
+    }
+    if ([[str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] == 0) {
+        return YES;
+    }
+    return NO;
+}
+
 @end

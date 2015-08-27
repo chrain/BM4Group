@@ -50,4 +50,11 @@
 /**车牌号验证 */
 + (BOOL)isValidateCarNo:(NSString *)carNo;
 
+/**
+ *  判断是字符串是否为空串，
+ *
+ *  @return yes表示为空
+ */
++ (BOOL)isEmptyString:(NSString *)str;
+
 @end

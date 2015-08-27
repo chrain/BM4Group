@@ -17,20 +17,6 @@
     return mutableString;
 }
 
-- (BOOL)isEmpty
-{
-    if (self == nil || self == NULL) {
-        return YES;
-    }
-    if ([self isKindOfClass:[NSNull class]]) {
-        return YES;
-    }
-    if ([[self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] == 0) {
-        return YES;
-    }
-    return NO;
-}
-
 -(BOOL)isChinese{
     NSString *match=@"(^[\u4e00-\u9fa5]+$)";
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF matches %@", match];
