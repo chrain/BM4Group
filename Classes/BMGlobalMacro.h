@@ -67,4 +67,6 @@ typedef id   (^IDBlock_id)  (id);
 
 #define weakSelf(self)  __weak typeof(self)weakSelf = self
 
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+
 #endif
