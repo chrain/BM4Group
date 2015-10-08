@@ -7,18 +7,16 @@
 //
 
 #import "BMUtils.h"
-#import "NSString+BM.h"
 #import "BMGlobalMacro.h"
-#import "MBProgressHUD.h"
-
 @implementation BMUtils
+
 
 + (BOOL)showNewFeature
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *previewFeatureVersion = [userDefaults stringForKey:@"previewFeatureVersion"];
     
-    if ([previewFeatureVersion isEmpty]) return YES;
+    if ([self isEmptyString:previewFeatureVersion]) return YES;
     
     NSString *version = [NSBundle mainBundle].infoDictionary[(__bridge NSString *)kCFBundleVersionKey];
     if ([previewFeatureVersion isEqualToString:version]) {
@@ -39,32 +37,6 @@
 {
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"telprompt://%@", phone]];
     [[UIApplication sharedApplication] openURL:url];
-}
-
-+ (void)showMessage:(NSString *)msg
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:kWindow animated:YES];
-        hud.labelText = [NSString stringWithFormat:@"\r\n%@", msg];
-        BMLog(@"%@", hud.labelText);
-    });
-}
-
-+ (void)hideMessage
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [MBProgressHUD hideHUDForView:kWindow animated:NO];
-    });
-}
-
-+ (void)showToast:(NSString *)msg delay:(NSUInteger)delay
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:kWindow animated:YES];
-        hud.labelText = msg;
-        hud.mode = MBProgressHUDModeText;
-        [hud hide:YES afterDelay:delay];
-    });
 }
 
 + (BOOL)isValidateEmail:(NSString *)email
