@@ -20,4 +20,6 @@
  */
 + (UIImage *)imageWithColor:(UIColor *)color;
 
+- (UIImage *)fixOrientation;
+
 @end
