@@ -48,4 +48,10 @@
  */
 + (BOOL)isEmptyString:(NSString *)str;
 
+///获得某个NSDate的星期几
++ (NSString*)weekdayStringFromDate:(NSDate*)inputDate;
+
+///获得某个NSDate的农历表示法
++ (NSString*)getChineseCalendarWithDate:(NSDate *)date;
+
 @end

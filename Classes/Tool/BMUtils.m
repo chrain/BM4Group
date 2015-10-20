@@ -113,7 +113,7 @@
 
 }
 
-+ (NSString*)getChineseCalendarWithDate:(NSDate *)date{
++ (NSString*)getChineseCalendarWithDate:(NSDate *)date {
 
     NSArray *chineseYears = [NSArray arrayWithObjects:
                              @"甲子", @"乙丑", @"丙寅", @"丁卯",  @"戊辰",  @"己巳",  @"庚午",  @"辛未",  @"壬申",  @"癸酉",

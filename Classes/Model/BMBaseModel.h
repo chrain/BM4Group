@@ -12,6 +12,11 @@
  *  所有模型的基类,提供默认的三个基本属性。
  */
 @interface BMBaseModel : NSObject
+{
+    NSUInteger _ID;
+    NSString *_name;
+    BOOL _selected;
+}
 
 /***  模型对应的id */
 @property (nonatomic, assign) NSUInteger ID;
@@ -23,5 +28,7 @@
  *  模型对应的选择状态。Tips:多用于本地选中删除。
  */
 @property (nonatomic, assign) BOOL selected;
+
++ (NSDateFormatter *)dateFormatter;
 
 @end
