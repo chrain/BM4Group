@@ -37,31 +37,44 @@ static const void *HttpRequestHUDKey = &HttpRequestHUDKey;
 }
 
 - (void)showHint:(NSString *)hint yOffset:(float)yOffset {
-    //显示提示信息
-    UIView *view = [[UIApplication sharedApplication].delegate window];
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-    hud.userInteractionEnabled = NO;
-    // Configure for text only and offset down
-    hud.mode = MBProgressHUDModeText;
-    hud.labelText = hint;
-    hud.margin = 10.f;
-    hud.yOffset = IS_IPHONE_5?200.f:150.f;
-    hud.yOffset += yOffset;
-    hud.removeFromSuperViewOnHide = YES;
-    [hud hide:YES afterDelay:2];
+    if ([self isViewLoaded] && self.view.window) {
+        //显示提示信息
+        UIView *view = [[UIApplication sharedApplication].delegate window];
+        NSArray * huds = [MBProgressHUD allHUDsForView:view];
+        [huds makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+        hud.userInteractionEnabled = NO;
+        // Configure for text only and offset down
+        hud.mode = MBProgressHUDModeText;
+        hud.animationType = MBProgressHUDAnimationZoom;
+        hud.opacity = 0.5;
+        hud.detailsLabelText = hint;
+        hud.margin = 10.f;
+        hud.yOffset = IS_IPHONE_5?200.f:150.f;
+        hud.yOffset += yOffset;
+        hud.removeFromSuperViewOnHide = YES;
+        [hud hide:YES afterDelay:1];
+    }
 }
 
 - (void)hideHud{
     [[self HUD] hide:YES];
 }
 
-- (void)alertWith:(NSString *)message
+- (void)alertFor:(NSString *)message
 {
-    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"\n%@", message] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"" message:[NSString stringWithFormat:@"\n%@", message] preferredStyle:UIAlertControllerStyleAlert];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alertVC animated:YES completion:nil];
-    //    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:[NSString stringWithFormat:@"\n%@", message] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-    //    [alertView show];
+}
+
+- (void)alertFor:(NSString *)message okHandler:(void (^)())ok
+{
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"" message:[NSString stringWithFormat:@"\n%@", message] preferredStyle:UIAlertControllerStyleAlert];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        ok();
+    }]];
+    [self presentViewController:alertVC animated:YES completion:nil];
 }
 
 @end
