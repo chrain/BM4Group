@@ -22,9 +22,6 @@
  */
 + (void)updateFeatureVersion;
 
-/**把一个格式化(yyyy-MM-dd HH-mm-ss)的时间字符串转化为NSDated对象 */
-+ (NSDate *)convertWithString:(NSString *)dateString;
-
 /**拨打电话 */
 + (void)callWithPhoneNumber:(NSString *)phone;
 
@@ -41,12 +38,8 @@
 /**车牌号验证 */
 + (BOOL)isValidateCarNo:(NSString *)carNo;
 
-/**
- *  判断是字符串是否为空串，
- *
- *  @return yes表示为空
- */
-+ (BOOL)isEmptyString:(NSString *)str;
+/**把一个格式化(yyyy-MM-dd HH-mm-ss)的时间字符串转化为NSDated对象 */
++ (NSDate *)convertWithString:(NSString *)dateString;
 
 ///获得某个NSDate的星期几
 + (NSString*)weekdayStringFromDate:(NSDate*)inputDate;

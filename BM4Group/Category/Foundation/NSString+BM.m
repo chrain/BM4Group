@@ -12,7 +12,7 @@
 
 - (NSString *)transformToPinyin {
     NSMutableString *mutableString = [NSMutableString stringWithString:self];
-    CFStringTransform((CFMutableStringRef)mutableString, NULL, kCFStringTransformToLatin, false);
+    CFStringTransform((__bridge CFMutableStringRef)mutableString, NULL, kCFStringTransformToLatin, false);
     mutableString = (NSMutableString *)[mutableString stringByFoldingWithOptions:NSDiacriticInsensitiveSearch locale:[NSLocale currentLocale]];
     return mutableString;
 }
@@ -21,6 +21,14 @@
     NSString *match=@"(^[\u4e00-\u9fa5]+$)";
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF matches %@", match];
     return [predicate evaluateWithObject:self];
+}
+
+- (BOOL)isExist
+{
+    if ([self isKindOfClass:[NSNull class]]) {
+        return NO;
+    }
+    return [[self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] != 0;
 }
 
 @end

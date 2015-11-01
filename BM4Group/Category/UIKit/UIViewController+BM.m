@@ -31,6 +31,11 @@ static const void *HttpRequestHUDKey = &HttpRequestHUDKey;
     [self setHUD:HUD];
 }
 
+- (void)showHudWithHint:(NSString *)hint {
+    [self showHudInView:self.view hint:hint];
+}
+
+
 - (void)showHint:(NSString *)hint
 {
     [self showHint:hint yOffset:0.f];
@@ -61,16 +66,17 @@ static const void *HttpRequestHUDKey = &HttpRequestHUDKey;
     [[self HUD] hide:YES];
 }
 
-- (void)alertFor:(NSString *)message
+- (void)alertWith:(NSString *)message
 {
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"" message:[NSString stringWithFormat:@"\n%@", message] preferredStyle:UIAlertControllerStyleAlert];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alertVC animated:YES completion:nil];
 }
 
-- (void)alertFor:(NSString *)message okHandler:(void (^)())ok
+- (void)alertWith:(NSString *)message okHandler:(void (^)())ok
 {
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"" message:[NSString stringWithFormat:@"\n%@", message] preferredStyle:UIAlertControllerStyleAlert];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil]];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         ok();
     }]];

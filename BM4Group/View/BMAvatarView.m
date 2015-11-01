@@ -62,4 +62,15 @@
     [self setNeedsDisplay];
 }
 
+- (void)setBorderColor:(UIColor *)borderColor {
+    _borderColor = borderColor;
+    [self setNeedsDisplay];
+}
+
+- (void)setBorderWidth:(CGFloat)borderWidth {
+    _borderWidth = borderWidth;
+    [self setNeedsDisplay];
+}
+
+
 @end

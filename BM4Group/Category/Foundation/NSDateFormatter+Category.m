@@ -10,13 +10,15 @@
   * from EaseMob Technologies.
   */
 
-#import <Foundation/Foundation.h>
+#import "NSDateFormatter+Category.h"
 
-@interface NSDateFormatter (Category)
+@implementation NSDateFormatter (Category)
 
-+ (id)dateFormatter;
-+ (id)dateFormatterWithFormat:(NSString *)dateFormat;
-
-+ (id)defaultDateFormatter;/*yyyy-MM-dd HH:mm:ss*/
++ (id)defaultDateFormatter
+{
+    NSDateFormatter *dateFormatter = [[self alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    return dateFormatter;
+}
 
 @end

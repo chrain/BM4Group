@@ -11,11 +11,6 @@
 @interface UIImage (BM)
 
 /**
- *  拉伸一张图片
- */
-+ (UIImage *)resizeImage:(NSString *)imgName;
-
-/**
  *  通过UIColor创建一张图片
  */
 + (UIImage *)imageWithColor:(UIColor *)color;

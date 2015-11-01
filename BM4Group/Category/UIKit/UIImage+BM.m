@@ -10,12 +10,6 @@
 
 @implementation UIImage (BM)
 
-+ (UIImage *)resizeImage:(NSString *)imgName {
-    UIImage *img = [UIImage imageNamed:imgName];
-    return [img stretchableImageWithLeftCapWidth:0.5 * img.size.width
-                                    topCapHeight:0.5 * img.size.height];
-}
-
 + (UIImage *)imageWithColor:(UIColor *)color {
     CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
     UIGraphicsBeginImageContext(rect.size);
@@ -40,19 +34,19 @@
         case UIImageOrientationDown:
         case UIImageOrientationDownMirrored:
             transform = CGAffineTransformTranslate(transform, self.size.width, self.size.height);
-            transform = CGAffineTransformRotate(transform, M_PI);
+            transform = CGAffineTransformRotate(transform, (CGFloat) M_PI);
             break;
             
         case UIImageOrientationLeft:
         case UIImageOrientationLeftMirrored:
             transform = CGAffineTransformTranslate(transform, self.size.width, 0);
-            transform = CGAffineTransformRotate(transform, M_PI_2);
+            transform = CGAffineTransformRotate(transform, (CGFloat) M_PI_2);
             break;
             
         case UIImageOrientationRight:
         case UIImageOrientationRightMirrored:
             transform = CGAffineTransformTranslate(transform, 0, self.size.height);
-            transform = CGAffineTransformRotate(transform, -M_PI_2);
+            transform = CGAffineTransformRotate(transform, (CGFloat) -M_PI_2);
             break;
         case UIImageOrientationUp:
         case UIImageOrientationUpMirrored:
@@ -80,7 +74,7 @@
     
     // Now we draw the underlying CGImage into a new context, applying the transform
     // calculated above.
-    CGContextRef ctx = CGBitmapContextCreate(NULL, self.size.width, self.size.height,
+    CGContextRef ctx = CGBitmapContextCreate(NULL, (size_t) self.size.width, (size_t) self.size.height,
                                              CGImageGetBitsPerComponent(self.CGImage), 0,
                                              CGImageGetColorSpace(self.CGImage),
                                              CGImageGetBitmapInfo(self.CGImage));

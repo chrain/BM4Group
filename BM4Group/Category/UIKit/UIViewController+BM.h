@@ -12,6 +12,8 @@
 
 - (void)showHudInView:(UIView *)view hint:(NSString *)hint;
 
+- (void)showHudWithHint:(NSString *)hint;
+
 - (void)hideHud;
 
 - (void)showHint:(NSString *)hint;
@@ -19,8 +21,8 @@
 // 从默认(showHint:)显示的位置再往上(下)yOffset
 - (void)showHint:(NSString *)hint yOffset:(float)yOffset;
 
-- (void)alertFor:(NSString *)message;
+- (void)alerWith:(NSString *)message;
 
-- (void)alertFor:(NSString *)message okHandler:(void (^)())ok;
+- (void)alertWith:(NSString *)message okHandler:(void (^)())ok;
 
 @end

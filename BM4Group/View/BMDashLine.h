@@ -10,4 +10,6 @@
 
 @interface BMDashLine : UIView
 
+@property (nonatomic, strong) UIColor *dashColor;
+
 @end

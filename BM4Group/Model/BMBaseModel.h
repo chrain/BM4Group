@@ -29,6 +29,4 @@
  */
 @property (nonatomic, assign) BOOL selected;
 
-+ (NSDateFormatter *)dateFormatter;
-
 @end

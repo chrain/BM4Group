@@ -23,4 +23,11 @@
  */
 -(BOOL)isChinese;
 
+/**
+ *  判断是字符串是否有值，
+ *
+ *  @return YES表示有值
+ */
+- (BOOL)isExist;
+
 @end

@@ -14,7 +14,7 @@
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
     CGContextRef context = UIGraphicsGetCurrentContext();
-    [kRGB(217, 217, 217) setStroke];
+    [self.dashColor setStroke];
     CGFloat lengths[] = {4, 4};
     CGContextSetLineDash(context, 0, lengths, 2);
     CGContextMoveToPoint(context, 0, 0);
@@ -30,5 +30,11 @@
     }
     CGContextStrokePath(context);
 }
+
+- (void)setDashColor:(UIColor *)dashColor {
+    _dashColor = dashColor;
+    [self setNeedsDisplay];
+}
+
 
 @end

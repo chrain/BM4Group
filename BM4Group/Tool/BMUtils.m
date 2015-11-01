@@ -7,22 +7,21 @@
 //
 
 #import "BMUtils.h"
+#import <UIKit/UIApplication.h>
 #import "BMGlobalMacro.h"
-@implementation BMUtils
+#import "NSString+BM.h"
 
+@implementation BMUtils
 
 + (BOOL)showNewFeature
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *previewFeatureVersion = [userDefaults stringForKey:@"previewFeatureVersion"];
     
-    if ([self isEmptyString:previewFeatureVersion]) return YES;
+    if (![previewFeatureVersion isExist]) return YES;
     
     NSString *version = [NSBundle mainBundle].infoDictionary[(__bridge NSString *)kCFBundleVersionKey];
-    if ([previewFeatureVersion isEqualToString:version]) {
-        return NO;
-    }
-    return YES;
+    return ![previewFeatureVersion isEqualToString:version];
 }
 
 + (void)updateFeatureVersion
@@ -79,20 +78,6 @@
     formatter.locale = [NSLocale currentLocale];
     formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     return [formatter dateFromString:dateString];
-}
-
-+ (BOOL)isEmptyString:(NSString *)str
-{
-    if (str == nil || str == NULL) {
-        return YES;
-    }
-    if ([str isKindOfClass:[NSNull class]]) {
-        return YES;
-    }
-    if ([[str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] == 0) {
-        return YES;
-    }
-    return NO;
 }
 
 + (NSString*)weekdayStringFromDate:(NSDate*)inputDate {
