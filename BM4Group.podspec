@@ -12,8 +12,8 @@ Pod::Spec.new do |s|
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
   s.license      = "MIT"
   s.author             = { "Chrain" => "chrain.master@gmail.com" }
-  s.source       = { :git => "https://github.com/chrain/BM4Group.git", :tag => 0.08 }
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
+  s.source       = { :git => "https://github.com/chrain/BM4Group.git", :tag => s.version }
+  s.source_files  = "BM4Group/**/*.{h,m}
   s.requires_arc = true
 
   # s.public_header_files = "Classes/**/*.h"
