@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   s.author             = { "Chrain" => "chrain.master@gmail.com" }
   s.source       = { :git => "https://github.com/chrain/BM4Group.git", :tag => s.version }
-  s.source_files  = "BM4Group/**/*.{h,m}
+  s.source_files  = "BM4Group/**/*.{h,m}"
   s.requires_arc = true
 
   # s.public_header_files = "Classes/**/*.h"
