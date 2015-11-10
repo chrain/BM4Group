@@ -23,25 +23,25 @@
 /// Block
 ///------
 
-typedef void (^VoidBlock)();
-typedef BOOL (^BoolBlock)();
-typedef int  (^IntBlock) ();
-typedef id   (^IDBlock)  ();
+typedef void (^voidBlock)();
+typedef BOOL (^boolBlock)();
+typedef int  (^intBlock) ();
+typedef id   (^idBlock)  ();
 
-typedef void (^VoidBlock_int)(int);
-typedef BOOL (^BoolBlock_int)(int);
-typedef int  (^IntBlock_int) (int);
-typedef id   (^IDBlock_int)  (int);
+typedef void (^voidBlock_int)(int);
+typedef BOOL (^boolBlock_int)(int);
+typedef int  (^intBlock_int) (int);
+typedef id   (^idBlock_int)  (int);
 
-typedef void (^VoidBlock_string)(NSString *);
-typedef BOOL (^BoolBlock_string)(NSString *);
-typedef int  (^IntBlock_string) (NSString *);
-typedef id   (^IDBlock_string)  (NSString *);
+typedef void (^voidBlock_string)(NSString *);
+typedef BOOL (^boolBlock_string)(NSString *);
+typedef int  (^intBlock_string) (NSString *);
+typedef id   (^idBlock_string)  (NSString *);
 
-typedef void (^VoidBlock_id)(id);
-typedef BOOL (^BoolBlock_id)(id);
-typedef int  (^IntBlock_id) (id);
-typedef id   (^IDBlock_id)  (id);
+typedef void (^voidBlock_id)(id);
+typedef BOOL (^boolBlock_id)(id);
+typedef int  (^intBlock_id) (id);
+typedef id   (^idBlock_id)  (id);
 
 ///------
 /// Color
@@ -64,11 +64,34 @@ typedef id   (^IDBlock_id)  (id);
 ///----------------------
 #define kDOCUMENT_DIRECTORY NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject
 
-#define kKeyWindow [UIApplication sharedApplication].keyWindow
+#define kWindow [UIApplication sharedApplication].keyWindow
 
-#define weakSelf(self)  __weak typeof(self)weakSelf = self
+// Details about the choice of backing keyword:
+//
+// The use of @try/@catch/@finally can cause the compiler to suppress
+// return-type warnings.
+// The use of @autoreleasepool {} is not optimized away by the compiler,
+// resulting in superfluous creation of autorelease pools.
+//
+// Since neither option is perfect, and with no other alternatives, the
+// compromise is to use @autorelease in DEBUG builds to maintain compiler
+// analysis, and to use @try/@catch otherwise to avoid insertion of unnecessary
+// autorelease pools.
+#if DEBUG
+#define rac_keywordify autoreleasepool {}
+#else
+#define rac_keywordify try {} @catch (...) {}
+#endif
+
+#define weakify(object) rac_keywordify __weak __typeof__(object) object##_##weak = object
+
+#define strongify(object) rac_keywordify __strong __typeof__(object) object = object##_##weak
 
 #define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - 568.f ) < DBL_EPSILON )
+
+#define kScaleWidth(iphone6Width) [[UIScreen mainScreen] bounds].size.width / 375.f * iphone6Width
+
+#define kScaleHeight(iphone6Height) [[UIScreen mainScreen] bounds].size.height / 667.f * iphone6Height
 
 #define isPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 

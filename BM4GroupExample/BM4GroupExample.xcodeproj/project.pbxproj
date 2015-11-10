@@ -19,9 +19,6 @@
 		3CEDFA1B1BE6452300ADA0E2 /* UIImage+BM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDF9FD1BE6452300ADA0E2 /* UIImage+BM.m */; settings = {ASSET_TAGS = (); }; };
 		3CEDFA1C1BE6452300ADA0E2 /* UIView+AutoLayoutDebugging.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDF9FF1BE6452300ADA0E2 /* UIView+AutoLayoutDebugging.m */; settings = {ASSET_TAGS = (); }; };
 		3CEDFA1D1BE6452300ADA0E2 /* UIView+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDFA011BE6452300ADA0E2 /* UIView+Convenience.m */; settings = {ASSET_TAGS = (); }; };
-		3CEDFA1E1BE6452300ADA0E2 /* UIViewController+BM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDFA031BE6452300ADA0E2 /* UIViewController+BM.m */; settings = {ASSET_TAGS = (); }; };
-		3CEDFA1F1BE6452300ADA0E2 /* BMBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDFA061BE6452300ADA0E2 /* BMBaseModel.m */; settings = {ASSET_TAGS = (); }; };
-		3CEDFA201BE6452300ADA0E2 /* BMPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDFA081BE6452300ADA0E2 /* BMPage.m */; settings = {ASSET_TAGS = (); }; };
 		3CEDFA211BE6452300ADA0E2 /* BMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDFA0B1BE6452300ADA0E2 /* BMUtils.m */; settings = {ASSET_TAGS = (); }; };
 		3CEDFA221BE6452300ADA0E2 /* BMAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDFA0F1BE6452300ADA0E2 /* BMAvatarView.m */; settings = {ASSET_TAGS = (); }; };
 		3CEDFA231BE6452300ADA0E2 /* BMDashLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDFA111BE6452300ADA0E2 /* BMDashLine.m */; settings = {ASSET_TAGS = (); }; };
@@ -289,15 +286,12 @@
 			files = (
 				3CEDFA221BE6452300ADA0E2 /* BMAvatarView.m in Sources */,
 				3CEDFA1D1BE6452300ADA0E2 /* UIView+Convenience.m in Sources */,
-				3CEDFA1E1BE6452300ADA0E2 /* UIViewController+BM.m in Sources */,
 				3CEDF9A51BE63B5700ADA0E2 /* ViewController.m in Sources */,
 				3CEDFA231BE6452300ADA0E2 /* BMDashLine.m in Sources */,
 				3CEDF9A21BE63B5700ADA0E2 /* AppDelegate.m in Sources */,
 				3CEDFA1B1BE6452300ADA0E2 /* UIImage+BM.m in Sources */,
 				3CEDFA191BE6452300ADA0E2 /* NSDateFormatter+Category.m in Sources */,
 				3CEDFA211BE6452300ADA0E2 /* BMUtils.m in Sources */,
-				3CEDFA1F1BE6452300ADA0E2 /* BMBaseModel.m in Sources */,
-				3CEDFA201BE6452300ADA0E2 /* BMPage.m in Sources */,
 				3CEDF99F1BE63B5700ADA0E2 /* main.m in Sources */,
 				3CEDFA1A1BE6452300ADA0E2 /* NSString+BM.m in Sources */,
 				3CEDFA1C1BE6452300ADA0E2 /* UIView+AutoLayoutDebugging.m in Sources */,
