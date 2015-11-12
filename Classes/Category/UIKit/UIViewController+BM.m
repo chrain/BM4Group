@@ -58,7 +58,7 @@ static const void *HttpRequestHUDKey = &HttpRequestHUDKey;
 - (void)alertWith:(NSString *)message
 {
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"\n%@", message] preferredStyle:UIAlertControllerStyleAlert];
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil]];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alertVC animated:YES completion:nil];
     //    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:[NSString stringWithFormat:@"\n%@", message] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
     //    [alertView show];
