@@ -21,7 +21,7 @@
 // 从默认(showHint:)显示的位置再往上(下)yOffset
 - (void)showHint:(NSString *)hint yOffset:(float)yOffset;
 
-- (void)alerWith:(NSString *)message;
+- (void)alertWith:(NSString *)message;
 
 - (void)alertWith:(NSString *)message okHandler:(void (^)())ok;
 

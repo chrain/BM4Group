@@ -19,29 +19,10 @@
 #define NSLog(...) {}
 #endif
 
-///------
-/// Block
-///------
-
-typedef void (^voidBlock)();
-typedef BOOL (^boolBlock)();
-typedef int  (^intBlock) ();
-typedef id   (^idBlock)  ();
-
-typedef void (^voidBlock_int)(int);
-typedef BOOL (^boolBlock_int)(int);
-typedef int  (^intBlock_int) (int);
-typedef id   (^idBlock_int)  (int);
-
-typedef void (^voidBlock_string)(NSString *);
-typedef BOOL (^boolBlock_string)(NSString *);
-typedef int  (^intBlock_string) (NSString *);
-typedef id   (^idBlock_string)  (NSString *);
-
-typedef void (^voidBlock_id)(id);
-typedef BOOL (^boolBlock_id)(id);
-typedef int  (^intBlock_id) (id);
-typedef id   (^idBlock_id)  (id);
+///----------------------
+/// ErrorLog
+///----------------------
+#define LogError(error) NSLog(@"Error: %@", error)
 
 ///------
 /// Color
@@ -66,6 +47,25 @@ typedef id   (^idBlock_id)  (id);
 
 #define kWindow [UIApplication sharedApplication].keyWindow
 
+#define isPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - 568.f ) < DBL_EPSILON )
+
+#define kScaleWidth(iphone6Width) [[UIScreen mainScreen] bounds].size.width / 375.f * iphone6Width
+
+#define kScaleHeight(iphone6Height) [[UIScreen mainScreen] bounds].size.height / 667.f * iphone6Height
+
+#define kScreenWidth  ([UIScreen mainScreen].bounds.size.width)
+#define kScreenHeight ([UIScreen mainScreen].bounds.size.height)
+
+#define k1PX_WIDTH (1 / [UIScreen mainScreen].scale)
+
+#ifndef __IPHONE_9_0
+#define _Nonnull
+#endif
+
+#ifndef EXTC_METAMACROS_H
+
 // Details about the choice of backing keyword:
 //
 // The use of @try/@catch/@finally can cause the compiler to suppress
@@ -84,22 +84,8 @@ typedef id   (^idBlock_id)  (id);
 #endif
 
 #define weakify(object) rac_keywordify __weak __typeof__(object) object##_##weak = object
-
 #define strongify(object) rac_keywordify __strong __typeof__(object) object = object##_##weak
 
-#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - 568.f ) < DBL_EPSILON )
-
-#define kScaleWidth(iphone6Width) [[UIScreen mainScreen] bounds].size.width / 375.f * iphone6Width
-
-#define kScaleHeight(iphone6Height) [[UIScreen mainScreen] bounds].size.height / 667.f * iphone6Height
-
-#define isPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-
-#define kSCREEN_WIDTH  ([UIScreen mainScreen].bounds.size.width)
-#define kSCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
-
-#ifndef __IPHONE_9_0
-#define _Nonnull
 #endif
 
 #endif
