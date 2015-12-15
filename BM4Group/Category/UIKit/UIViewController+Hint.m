@@ -6,33 +6,32 @@
 //  Copyright (c) 2015年 蓝色互动武汉项目4部. All rights reserved.
 //
 
-#import "UIViewController+BM.h"
-#import "BMGlobalMacro.h"
+#import "UIViewController+Hint.h"
 #import "MBProgressHUD.h"
 #import <objc/runtime.h>
 
 static const void *HttpRequestHUDKey = &HttpRequestHUDKey;
 
-@implementation UIViewController (BM)
+@implementation UIViewController (Hint)
 
 - (MBProgressHUD *)HUD{
-    return objc_getAssociatedObject(self, HttpRequestHUDKey);
-}
-
-- (void)setHUD:(MBProgressHUD *)HUD{
-    objc_setAssociatedObject(self, HttpRequestHUDKey, HUD, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    MBProgressHUD *HUD = objc_getAssociatedObject(self, HttpRequestHUDKey);
+    if (!HUD) {
+        HUD = [[MBProgressHUD alloc] initWithView:view];
+        objc_setAssociatedObject(self, HttpRequestHUDKey, HUD, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return HUD;
 }
 
 - (void)showHudInView:(UIView *)view hint:(NSString *)hint{
-    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:view];
-    HUD.labelText = hint;
+    MBProgressHUD *HUD = self.HUD;
+    HUD.detailsLabelText = hint;
     [view addSubview:HUD];
     [HUD show:YES];
-    [self setHUD:HUD];
 }
 
 - (void)showHudWithHint:(NSString *)hint {
-    [self showHudInView:self.view hint:hint];
+    [self showHudInView:self.navigationController.view ?: self.view hint:hint];
 }
 
 
@@ -55,10 +54,10 @@ static const void *HttpRequestHUDKey = &HttpRequestHUDKey;
         hud.opacity = 0.5;
         hud.detailsLabelText = hint;
         hud.margin = 10.f;
-        hud.yOffset = IS_IPHONE_5?200.f:150.f;
+        hud.yOffset = IS_IPHONE_5 ? 200.f : 150.f;
         hud.yOffset += yOffset;
         hud.removeFromSuperViewOnHide = YES;
-        [hud hide:YES afterDelay:1];
+        [hud hide:YES afterDelay:1.5f];
     }
 }
 
@@ -68,16 +67,16 @@ static const void *HttpRequestHUDKey = &HttpRequestHUDKey;
 
 - (void)alertWith:(NSString *)message
 {
-    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"" message:[NSString stringWithFormat:@"\n%@", message] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alertVC animated:YES completion:nil];
 }
 
 - (void)alertWith:(NSString *)message okHandler:(void (^)())ok
 {
-    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"" message:[NSString stringWithFormat:@"\n%@", message] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         ok();
     }]];
     [self presentViewController:alertVC animated:YES completion:nil];

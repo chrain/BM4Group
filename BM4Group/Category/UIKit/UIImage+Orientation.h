@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (BM)
+@interface UIImage (Orientation)
 
 /**
- *  通过UIColor创建一张图片
+ *  默认相机拍摄的图片为顺时针转90°，此方法调整类似此类情况图片的方向。
+ *
+ *  @return 返回调整后的图片
  */
-+ (UIImage *)imageWithColor:(UIColor *)color;
-
 - (UIImage *)fixOrientation;
 
 @end

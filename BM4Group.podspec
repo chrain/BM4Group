@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "BM4Group"
-  s.version      = "0.0.8"
+  s.version      = "0.1"
   s.summary      = "BM4Group Develpoe iOS Library."
 
   s.description  = <<-DESC
@@ -29,5 +29,9 @@ Pod::Spec.new do |s|
   s.dependency "MJExtension"
   s.dependency "MJRefresh"
   s.dependency "Masonry"
+  s.dependency "DZNEmptyDataSet"
+  s.dependency "YYKit"
+  s.dependency "UIActivityIndicator-for-SDWebImage"
+  s.dependency "CTAssetsPickerController"
 
 end

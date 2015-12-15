@@ -7,27 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C0469D11C1FFCDC0031369A /* NSNull+Exist.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0469D01C1FFCDC0031369A /* NSNull+Exist.m */; };
+		3C0469D61C2006080031369A /* UnderLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0469D51C2006080031369A /* UnderLineView.m */; };
+		3C0469D91C2006240031369A /* BMSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0469D81C2006240031369A /* BMSpinnerView.m */; };
 		3CEDF99F1BE63B5700ADA0E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDF99E1BE63B5700ADA0E2 /* main.m */; };
 		3CEDF9A21BE63B5700ADA0E2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDF9A11BE63B5700ADA0E2 /* AppDelegate.m */; };
 		3CEDF9A51BE63B5700ADA0E2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDF9A41BE63B5700ADA0E2 /* ViewController.m */; };
 		3CEDF9A81BE63B5700ADA0E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CEDF9A61BE63B5700ADA0E2 /* Main.storyboard */; };
 		3CEDF9AA1BE63B5700ADA0E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CEDF9A91BE63B5700ADA0E2 /* Assets.xcassets */; };
 		3CEDF9AD1BE63B5700ADA0E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CEDF9AB1BE63B5700ADA0E2 /* LaunchScreen.storyboard */; };
-		3CEDFA181BE6452300ADA0E2 /* NSDate+BM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDF9F61BE6452300ADA0E2 /* NSDate+BM.m */; settings = {ASSET_TAGS = (); }; };
-		3CEDFA191BE6452300ADA0E2 /* NSDateFormatter+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDF9F81BE6452300ADA0E2 /* NSDateFormatter+Category.m */; settings = {ASSET_TAGS = (); }; };
-		3CEDFA1A1BE6452300ADA0E2 /* NSString+BM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDF9FA1BE6452300ADA0E2 /* NSString+BM.m */; settings = {ASSET_TAGS = (); }; };
-		3CEDFA1B1BE6452300ADA0E2 /* UIImage+BM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDF9FD1BE6452300ADA0E2 /* UIImage+BM.m */; settings = {ASSET_TAGS = (); }; };
-		3CEDFA1C1BE6452300ADA0E2 /* UIView+AutoLayoutDebugging.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDF9FF1BE6452300ADA0E2 /* UIView+AutoLayoutDebugging.m */; settings = {ASSET_TAGS = (); }; };
-		3CEDFA1D1BE6452300ADA0E2 /* UIView+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDFA011BE6452300ADA0E2 /* UIView+Convenience.m */; settings = {ASSET_TAGS = (); }; };
-		3CEDFA211BE6452300ADA0E2 /* BMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDFA0B1BE6452300ADA0E2 /* BMUtils.m */; settings = {ASSET_TAGS = (); }; };
-		3CEDFA221BE6452300ADA0E2 /* BMAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDFA0F1BE6452300ADA0E2 /* BMAvatarView.m */; settings = {ASSET_TAGS = (); }; };
-		3CEDFA231BE6452300ADA0E2 /* BMDashLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDFA111BE6452300ADA0E2 /* BMDashLine.m */; settings = {ASSET_TAGS = (); }; };
-		3CEDFA241BE6452300ADA0E2 /* BMEnableIQKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDFA131BE6452300ADA0E2 /* BMEnableIQKeyboardView.m */; settings = {ASSET_TAGS = (); }; };
-		3CEDFA251BE6452300ADA0E2 /* BMNoHilightButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDFA151BE6452300ADA0E2 /* BMNoHilightButton.m */; settings = {ASSET_TAGS = (); }; };
-		3CEDFA261BE6452300ADA0E2 /* BMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDFA171BE6452300ADA0E2 /* BMTextView.m */; settings = {ASSET_TAGS = (); }; };
+		3CEDFA1A1BE6452300ADA0E2 /* NSString+Exist.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDF9FA1BE6452300ADA0E2 /* NSString+Exist.m */; };
+		3CEDFA1B1BE6452300ADA0E2 /* UIImage+Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDF9FD1BE6452300ADA0E2 /* UIImage+Orientation.m */; };
+		3CEDFA1C1BE6452300ADA0E2 /* UIView+AutoLayoutDebugging.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDF9FF1BE6452300ADA0E2 /* UIView+AutoLayoutDebugging.m */; };
+		3CEDFA1D1BE6452300ADA0E2 /* UIView+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDFA011BE6452300ADA0E2 /* UIView+Convenience.m */; };
+		3CEDFA211BE6452300ADA0E2 /* BMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDFA0B1BE6452300ADA0E2 /* BMUtils.m */; };
+		3CEDFA221BE6452300ADA0E2 /* BMAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDFA0F1BE6452300ADA0E2 /* BMAvatarView.m */; };
+		3CEDFA231BE6452300ADA0E2 /* BMDashLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDFA111BE6452300ADA0E2 /* BMDashLine.m */; };
+		3CEDFA241BE6452300ADA0E2 /* BMEnableIQKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEDFA131BE6452300ADA0E2 /* BMEnableIQKeyboardView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C0469CF1C1FFCDC0031369A /* NSNull+Exist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+Exist.h"; sourceTree = "<group>"; };
+		3C0469D01C1FFCDC0031369A /* NSNull+Exist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+Exist.m"; sourceTree = "<group>"; };
+		3C0469D41C2006080031369A /* UnderLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnderLineView.h; sourceTree = "<group>"; };
+		3C0469D51C2006080031369A /* UnderLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnderLineView.m; sourceTree = "<group>"; };
+		3C0469D71C2006240031369A /* BMSpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMSpinnerView.h; sourceTree = "<group>"; };
+		3C0469D81C2006240031369A /* BMSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMSpinnerView.m; sourceTree = "<group>"; };
 		3CEDF99A1BE63B5700ADA0E2 /* BM4GroupExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BM4GroupExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CEDF99E1BE63B5700ADA0E2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3CEDF9A01BE63B5700ADA0E2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -40,37 +45,28 @@
 		3CEDF9AE1BE63B5700ADA0E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CEDF9F11BE6452300ADA0E2 /* BM4Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BM4Group.h; sourceTree = "<group>"; };
 		3CEDF9F21BE6452300ADA0E2 /* BMGlobalMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMGlobalMacro.h; sourceTree = "<group>"; };
-		3CEDF9F51BE6452300ADA0E2 /* NSDate+BM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+BM.h"; sourceTree = "<group>"; };
-		3CEDF9F61BE6452300ADA0E2 /* NSDate+BM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BM.m"; sourceTree = "<group>"; };
-		3CEDF9F71BE6452300ADA0E2 /* NSDateFormatter+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Category.h"; sourceTree = "<group>"; };
-		3CEDF9F81BE6452300ADA0E2 /* NSDateFormatter+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Category.m"; sourceTree = "<group>"; };
-		3CEDF9F91BE6452300ADA0E2 /* NSString+BM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BM.h"; sourceTree = "<group>"; };
-		3CEDF9FA1BE6452300ADA0E2 /* NSString+BM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BM.m"; sourceTree = "<group>"; };
-		3CEDF9FC1BE6452300ADA0E2 /* UIImage+BM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BM.h"; sourceTree = "<group>"; };
-		3CEDF9FD1BE6452300ADA0E2 /* UIImage+BM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BM.m"; sourceTree = "<group>"; };
+		3CEDF9F91BE6452300ADA0E2 /* NSString+Exist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Exist.h"; sourceTree = "<group>"; };
+		3CEDF9FA1BE6452300ADA0E2 /* NSString+Exist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Exist.m"; sourceTree = "<group>"; };
+		3CEDF9FC1BE6452300ADA0E2 /* UIImage+Orientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Orientation.h"; sourceTree = "<group>"; };
+		3CEDF9FD1BE6452300ADA0E2 /* UIImage+Orientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Orientation.m"; sourceTree = "<group>"; };
 		3CEDF9FE1BE6452300ADA0E2 /* UIView+AutoLayoutDebugging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayoutDebugging.h"; sourceTree = "<group>"; };
 		3CEDF9FF1BE6452300ADA0E2 /* UIView+AutoLayoutDebugging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayoutDebugging.m"; sourceTree = "<group>"; };
 		3CEDFA001BE6452300ADA0E2 /* UIView+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Convenience.h"; sourceTree = "<group>"; };
 		3CEDFA011BE6452300ADA0E2 /* UIView+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Convenience.m"; sourceTree = "<group>"; };
-		3CEDFA021BE6452300ADA0E2 /* UIViewController+BM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BM.h"; sourceTree = "<group>"; };
-		3CEDFA031BE6452300ADA0E2 /* UIViewController+BM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BM.m"; sourceTree = "<group>"; };
+		3CEDFA021BE6452300ADA0E2 /* UIViewController+Hint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Hint.h"; sourceTree = "<group>"; };
+		3CEDFA031BE6452300ADA0E2 /* UIViewController+Hint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Hint.m"; sourceTree = "<group>"; };
 		3CEDFA051BE6452300ADA0E2 /* BMBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMBaseModel.h; sourceTree = "<group>"; };
 		3CEDFA061BE6452300ADA0E2 /* BMBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMBaseModel.m; sourceTree = "<group>"; };
 		3CEDFA071BE6452300ADA0E2 /* BMPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMPage.h; sourceTree = "<group>"; };
 		3CEDFA081BE6452300ADA0E2 /* BMPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMPage.m; sourceTree = "<group>"; };
 		3CEDFA0A1BE6452300ADA0E2 /* BMUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMUtils.h; sourceTree = "<group>"; };
 		3CEDFA0B1BE6452300ADA0E2 /* BMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMUtils.m; sourceTree = "<group>"; };
-		3CEDFA0C1BE6452300ADA0E2 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		3CEDFA0E1BE6452300ADA0E2 /* BMAvatarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAvatarView.h; sourceTree = "<group>"; };
 		3CEDFA0F1BE6452300ADA0E2 /* BMAvatarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAvatarView.m; sourceTree = "<group>"; };
 		3CEDFA101BE6452300ADA0E2 /* BMDashLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMDashLine.h; sourceTree = "<group>"; };
 		3CEDFA111BE6452300ADA0E2 /* BMDashLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMDashLine.m; sourceTree = "<group>"; };
 		3CEDFA121BE6452300ADA0E2 /* BMEnableIQKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMEnableIQKeyboardView.h; sourceTree = "<group>"; };
 		3CEDFA131BE6452300ADA0E2 /* BMEnableIQKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMEnableIQKeyboardView.m; sourceTree = "<group>"; };
-		3CEDFA141BE6452300ADA0E2 /* BMNoHilightButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMNoHilightButton.h; sourceTree = "<group>"; };
-		3CEDFA151BE6452300ADA0E2 /* BMNoHilightButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMNoHilightButton.m; sourceTree = "<group>"; };
-		3CEDFA161BE6452300ADA0E2 /* BMTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMTextView.h; sourceTree = "<group>"; };
-		3CEDFA171BE6452300ADA0E2 /* BMTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMTextView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,12 +147,10 @@
 		3CEDF9F41BE6452300ADA0E2 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				3CEDF9F51BE6452300ADA0E2 /* NSDate+BM.h */,
-				3CEDF9F61BE6452300ADA0E2 /* NSDate+BM.m */,
-				3CEDF9F71BE6452300ADA0E2 /* NSDateFormatter+Category.h */,
-				3CEDF9F81BE6452300ADA0E2 /* NSDateFormatter+Category.m */,
-				3CEDF9F91BE6452300ADA0E2 /* NSString+BM.h */,
-				3CEDF9FA1BE6452300ADA0E2 /* NSString+BM.m */,
+				3CEDF9F91BE6452300ADA0E2 /* NSString+Exist.h */,
+				3CEDF9FA1BE6452300ADA0E2 /* NSString+Exist.m */,
+				3C0469CF1C1FFCDC0031369A /* NSNull+Exist.h */,
+				3C0469D01C1FFCDC0031369A /* NSNull+Exist.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -164,14 +158,14 @@
 		3CEDF9FB1BE6452300ADA0E2 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				3CEDF9FC1BE6452300ADA0E2 /* UIImage+BM.h */,
-				3CEDF9FD1BE6452300ADA0E2 /* UIImage+BM.m */,
+				3CEDF9FC1BE6452300ADA0E2 /* UIImage+Orientation.h */,
+				3CEDF9FD1BE6452300ADA0E2 /* UIImage+Orientation.m */,
 				3CEDF9FE1BE6452300ADA0E2 /* UIView+AutoLayoutDebugging.h */,
 				3CEDF9FF1BE6452300ADA0E2 /* UIView+AutoLayoutDebugging.m */,
 				3CEDFA001BE6452300ADA0E2 /* UIView+Convenience.h */,
 				3CEDFA011BE6452300ADA0E2 /* UIView+Convenience.m */,
-				3CEDFA021BE6452300ADA0E2 /* UIViewController+BM.h */,
-				3CEDFA031BE6452300ADA0E2 /* UIViewController+BM.m */,
+				3CEDFA021BE6452300ADA0E2 /* UIViewController+Hint.h */,
+				3CEDFA031BE6452300ADA0E2 /* UIViewController+Hint.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -192,7 +186,6 @@
 			children = (
 				3CEDFA0A1BE6452300ADA0E2 /* BMUtils.h */,
 				3CEDFA0B1BE6452300ADA0E2 /* BMUtils.m */,
-				3CEDFA0C1BE6452300ADA0E2 /* Singleton.h */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -200,16 +193,16 @@
 		3CEDFA0D1BE6452300ADA0E2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3C0469D71C2006240031369A /* BMSpinnerView.h */,
+				3C0469D81C2006240031369A /* BMSpinnerView.m */,
+				3C0469D41C2006080031369A /* UnderLineView.h */,
+				3C0469D51C2006080031369A /* UnderLineView.m */,
 				3CEDFA0E1BE6452300ADA0E2 /* BMAvatarView.h */,
 				3CEDFA0F1BE6452300ADA0E2 /* BMAvatarView.m */,
 				3CEDFA101BE6452300ADA0E2 /* BMDashLine.h */,
 				3CEDFA111BE6452300ADA0E2 /* BMDashLine.m */,
 				3CEDFA121BE6452300ADA0E2 /* BMEnableIQKeyboardView.h */,
 				3CEDFA131BE6452300ADA0E2 /* BMEnableIQKeyboardView.m */,
-				3CEDFA141BE6452300ADA0E2 /* BMNoHilightButton.h */,
-				3CEDFA151BE6452300ADA0E2 /* BMNoHilightButton.m */,
-				3CEDFA161BE6452300ADA0E2 /* BMTextView.h */,
-				3CEDFA171BE6452300ADA0E2 /* BMTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -289,16 +282,15 @@
 				3CEDF9A51BE63B5700ADA0E2 /* ViewController.m in Sources */,
 				3CEDFA231BE6452300ADA0E2 /* BMDashLine.m in Sources */,
 				3CEDF9A21BE63B5700ADA0E2 /* AppDelegate.m in Sources */,
-				3CEDFA1B1BE6452300ADA0E2 /* UIImage+BM.m in Sources */,
-				3CEDFA191BE6452300ADA0E2 /* NSDateFormatter+Category.m in Sources */,
+				3C0469D11C1FFCDC0031369A /* NSNull+Exist.m in Sources */,
+				3CEDFA1B1BE6452300ADA0E2 /* UIImage+Orientation.m in Sources */,
 				3CEDFA211BE6452300ADA0E2 /* BMUtils.m in Sources */,
 				3CEDF99F1BE63B5700ADA0E2 /* main.m in Sources */,
-				3CEDFA1A1BE6452300ADA0E2 /* NSString+BM.m in Sources */,
+				3C0469D61C2006080031369A /* UnderLineView.m in Sources */,
+				3CEDFA1A1BE6452300ADA0E2 /* NSString+Exist.m in Sources */,
 				3CEDFA1C1BE6452300ADA0E2 /* UIView+AutoLayoutDebugging.m in Sources */,
-				3CEDFA181BE6452300ADA0E2 /* NSDate+BM.m in Sources */,
 				3CEDFA241BE6452300ADA0E2 /* BMEnableIQKeyboardView.m in Sources */,
-				3CEDFA261BE6452300ADA0E2 /* BMTextView.m in Sources */,
-				3CEDFA251BE6452300ADA0E2 /* BMNoHilightButton.m in Sources */,
+				3C0469D91C2006240031369A /* BMSpinnerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

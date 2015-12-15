@@ -10,6 +10,7 @@
 
 @implementation UIView (Convenience)
 
+/*
 #pragma mark - 属性set方法
 - (void)setX:(CGFloat)x
 {
@@ -107,16 +108,19 @@
 {
     return self.center.y;
 }
+ */
 
 - (void)cornerRectWith:(UIRectCorner)rectCorner
 {
     UIBezierPath *maskPath  = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:rectCorner cornerRadii:CGSizeMake(5.f, 5.f)];
     CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-    maskLayer.frame         = self.bounds;
-    maskLayer.path          = maskPath.CGPath;
-    self.layer.mask         = maskLayer;
+    maskLayer.frame = self.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.layer.masksToBounds = YES;
+    self.layer.mask = maskLayer;
 }
 
+/*
 - (UIImage *)snapshoot
 {
     UIGraphicsBeginImageContextWithOptions(self.size, NO, self.layer.contentsScale);//[UIScreen mainScreen].scale
@@ -124,6 +128,6 @@
     UIImage *snapshootImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return snapshootImage;
-}
+}*/
 
 @end

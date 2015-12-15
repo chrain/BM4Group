@@ -17,6 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSDate *date;
+    
+    NSDateFormatter *formatter;
+    
+    
 }
 
 @end

@@ -10,14 +10,6 @@
 
 @implementation BMAvatarView
 
-- (instancetype)init
-{
-    if (self = [super init]) {
-        [self configuration];
-    }
-    return self;
-}
-
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {

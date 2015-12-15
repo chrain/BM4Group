@@ -10,5 +10,4 @@
 
 @implementation BMEnableIQKeyboardView
 
-
 @end

@@ -18,15 +18,12 @@
     BOOL _selected;
 }
 
-/***  模型对应的id */
-@property (nonatomic, assign) NSUInteger ID;
+@property (nonatomic, assign) NSUInteger ID;    ///<模型对应的id
 
-/***  模型对应的name */
-@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *name;     ///<模型对应的name
 
-/**
- *  模型对应的选择状态。Tips:多用于本地选中删除。
- */
-@property (nonatomic, assign) BOOL selected;
+@property (nonatomic, assign) BOOL selected;    ///<模型对应的选择状态。Tips:多用于本地选中删除。
+
++ (NSDateFormatter *)defaultDateFormatter;
 
 @end

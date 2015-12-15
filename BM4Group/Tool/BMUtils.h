@@ -38,13 +38,10 @@
 /**车牌号验证 */
 + (BOOL)isValidateCarNo:(NSString *)carNo;
 
-/**把一个格式化(yyyy-MM-dd HH-mm-ss)的时间字符串转化为NSDated对象 */
-+ (NSDate *)convertWithString:(NSString *)dateString;
-
 ///获得某个NSDate的星期几
-+ (NSString*)weekdayStringFromDate:(NSDate*)inputDate;
++ (NSString *)weekdayStringFromDate:(NSDate*)inputDate;
 
 ///获得某个NSDate的农历表示法
-+ (NSString*)getChineseCalendarWithDate:(NSDate *)date;
++ (NSString *)getChineseCalendarWithDate:(NSDate *)date;
 
 @end

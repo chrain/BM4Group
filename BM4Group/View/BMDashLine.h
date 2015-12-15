@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+IB_DESIGNABLE
 @interface BMDashLine : UIView
 
 @property (nonatomic, strong) UIColor *dashColor;

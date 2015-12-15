@@ -6,20 +6,9 @@
 //  Copyright (c) 2015年 蓝色互动. All rights reserved.
 //
 
-#import "UIImage+BM.h"
+#import "UIImage+Orientation.h"
 
-@implementation UIImage (BM)
-
-+ (UIImage *)imageWithColor:(UIColor *)color {
-    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect);
-    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return theImage;
-}
+@implementation UIImage (Orientation)
 
 - (UIImage *)fixOrientation
 {
