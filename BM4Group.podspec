@@ -29,5 +29,6 @@ Pod::Spec.new do |s|
   s.dependency 'YYKit'
   s.dependency 'UIActivityIndicator-for-SDWebImage'
   s.dependency 'CTAssetsPickerController'
+  s.dependency 'LxDBAnything'
 
 end
