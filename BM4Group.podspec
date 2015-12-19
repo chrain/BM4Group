@@ -6,8 +6,8 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/chrain/BM4Group"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.platform     = :ios, '7.0'
-  s.author             = { "Chrain" => "chrain.master@gmail.com" }
-  # s.authors            = { "Chrain" => "chrain.master@gmail.com" }
+  s.author       = { "Chrain" => "chrain.master@gmail.com" }
+  # s.authors    = { "Chrain" => "chrain.master@gmail.com" }
   # s.social_media_url   = "http://twitter.com/Chrain"
 
   s.source       = { :git => "https://github.com/chrain/BM4Group.git", :tag => s.version.to_s }

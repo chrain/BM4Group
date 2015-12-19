@@ -7,6 +7,7 @@
 //
 
 #import "BMBaseModel.h"
+#import "NSString+Exist.h"
 
 @implementation BMBaseModel
 
@@ -18,13 +19,13 @@
 
 + (id)mj_getNewValueFromObject:(__unsafe_unretained id)object oldValue:(__unsafe_unretained id)oldValue property:(MJProperty *__unsafe_unretained)property {
     if (property.type.typeClass == [NSDate class]) {
-        if ([oldValue isKindOfClass:[NSString class]] && [oldValue isExist]) {
+        if ([oldValue isKindOfClass:[NSString class]] && [(NSString *)oldValue isExist]) {
             return [self.defaultDateFormatter dateFromString:oldValue];
         } else {
             return nil;
         }
     } else if (property.type.typeClass == [NSURL class]) {
-        if ([oldValue isKindOfClass:[NSString class]] && [oldValue isExist]) {
+        if ([oldValue isKindOfClass:[NSString class]] && [(NSString *)oldValue isExist]) {
             return [NSURL URLWithString:oldValue];
         } else {
             return nil;

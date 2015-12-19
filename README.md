@@ -17,8 +17,8 @@ Example Project
 ==============
 See `Example/BM4GroupExample.xcodeproj`
 
-<img src="https://raw.github.com/chrain/BM4Group/master/Example/Snapshots/twitter.png" width="320"><br/>
-<img src="https://raw.github.com/chrain/BM4Group/master/Example/Snapshots/weibo.png" width="320"> <img src="https://raw.github.com/chrain/BM4Group/master/Demo/Snapshots/weibo_compose.png" width="320">
+<img src="https://raw.github.com/chrain/BM4Group/master/Example/Snapshots/1.png" width="320"><br/>
+<img src="https://raw.github.com/chrain/BM4Group/master/Example/Snapshots/2.png" width="320"> <img src="https://raw.github.com/chrain/BM4Group/master/Demo/Snapshots/3.png" width="320">
 
 
 Installation
