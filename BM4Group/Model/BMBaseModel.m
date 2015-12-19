@@ -94,13 +94,13 @@ static NSDate *BMNSDateFromString(__unsafe_unretained NSString *string) {
 
 + (id)mj_getNewValueFromObject:(__unsafe_unretained id)object oldValue:(__unsafe_unretained id)oldValue property:(MJProperty *__unsafe_unretained)property {
     if (property.type.typeClass == [NSDate class]) {
-        if ([oldValue isKindOfClass:[NSString class]]]) {
-            return BMNSDateFromString(oldValue)
+        if ([oldValue isKindOfClass:[NSString class]]) {
+            return BMNSDateFromString(oldValue);
         } else {
             return nil;
         }
     } else if (property.type.typeClass == [NSURL class]) {
-        if ([oldValue isKindOfClass:[NSString class]]]) {
+        if ([oldValue isKindOfClass:[NSString class]]) {
             return [NSURL URLWithString:oldValue];
         } else {
             return nil;
