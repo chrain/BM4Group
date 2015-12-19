@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ye-Vg-lL3" customClass="BMDashLine">
+                                <rect key="frame" x="0.0" y="60" width="600" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="3yf-h2-Ch7"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Sl-zU-Q9k" customClass="BMUnderLineView">
+                                <rect key="frame" x="40" y="69" width="520" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="GiD-JU-L6X"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" red="1" green="0.69803921570000005" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vX-9W-BVs">
+                                <rect key="frame" x="40" y="127" width="520" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="3M0-JQ-fQ0"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="buttonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bqb-Pf-2Es"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2Ye-Vg-lL3" secondAttribute="trailing" id="1ri-hO-Ba0"/>
+                            <constraint firstItem="2Ye-Vg-lL3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="Bu4-Vc-kau"/>
+                            <constraint firstItem="2vX-9W-BVs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="40" id="QQE-Xt-mYQ"/>
+                            <constraint firstItem="1Sl-zU-Q9k" firstAttribute="top" secondItem="2Ye-Vg-lL3" secondAttribute="bottom" constant="8" id="U39-Dv-H2g"/>
+                            <constraint firstItem="2Ye-Vg-lL3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="efa-MO-9mh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Sl-zU-Q9k" secondAttribute="trailing" constant="20" id="flB-OY-KI6"/>
+                            <constraint firstItem="1Sl-zU-Q9k" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="j4q-x5-wo2"/>
+                            <constraint firstAttribute="trailing" secondItem="2vX-9W-BVs" secondAttribute="trailing" constant="40" id="nTv-vh-ekd"/>
+                            <constraint firstItem="2vX-9W-BVs" firstAttribute="top" secondItem="1Sl-zU-Q9k" secondAttribute="bottom" constant="8" id="yVm-lD-ERe"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
