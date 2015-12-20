@@ -5,6 +5,8 @@
 //  Created by 陈宇 on 15/11/13.
 //
 //
+#import "HttpClient.h"
+#import "NSString+Exist.h"
 
 #if __has_include(<AFNetworking/AFNetworking.h>)
 
@@ -42,7 +44,7 @@ static HttpClient *_httpClient = nil;
 - (BMResponse *)responseWithJson:(id)responseObj {
     BMResponse *response = [BMResponse mj_objectWithKeyValues:responseObj];
     
-    if (response.status) {
+    if (response.status != [HttpClientConfig sharedInstance].successStatus) {
         NSError *error = [NSError errorWithDomain:kHttpClientErrorDomain code:response.status userInfo:@{NSLocalizedDescriptionKey : [response.msg isExist] ? response.msg : @"出现未知错误了，请重试。"}];
         response.error = error;
         return response;
@@ -72,14 +74,33 @@ static HttpClient *_httpClient = nil;
         @strongify(self);
         NSURLSessionDataTask *task = [self.manager GET:request.path parameters:request.params success:^(NSURLSessionDataTask *_Nonnull task, id _Nonnull responseObject) {
             BMResponse *response = [self responseWithJson:responseObject];
-            if (response.status) {
+            if (response.status != [HttpClientConfig sharedInstance].successStatus) {
                 [subscriber sendError:response.error];
             } else {
                 [subscriber sendNext:response];
                 [subscriber sendCompleted];
             }
         } failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
-            [subscriber sendError:error];
+            NSData *responseData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+            if (!responseData) {
+                [subscriber sendError:error];
+            } else {
+                NSError *jsonError = nil;
+                NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&jsonError];
+                if (responseDict && [responseDict isKindOfClass:[NSDictionary class]]) {
+                    BMResponse *response = [self responseWithJson:responseDict];
+                    if (response.status != [HttpClientConfig sharedInstance].successStatus) {
+                        [subscriber sendError:response.error];
+                    } else {
+                        [subscriber sendNext:response];
+                        [subscriber sendCompleted];
+                    }
+                } else if (jsonError) {
+                    [subscriber sendError:jsonError];
+                } else {
+                    [subscriber sendError:error];
+                }
+            }
         }];
         return [RACDisposable disposableWithBlock:^{
             if (task.state != NSURLSessionTaskStateCompleted) {
@@ -95,7 +116,7 @@ static HttpClient *_httpClient = nil;
         @strongify(self);
         NSURLSessionDataTask *task = [self.manager POST:request.path parameters:request.params success:^(NSURLSessionDataTask *_Nonnull task, id _Nonnull responseObject) {
             BMResponse *response = [self responseWithJson:responseObject];
-            if (response.status) {
+            if (response.status != [HttpClientConfig sharedInstance].successStatus) {
                 [subscriber sendError:response.error];
             } else {
                 [subscriber sendNext:response];
@@ -110,7 +131,7 @@ static HttpClient *_httpClient = nil;
                 NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&jsonError];
                 if (responseDict && [responseDict isKindOfClass:[NSDictionary class]]) {
                     BMResponse *response = [self responseWithJson:responseDict];
-                    if (response.status) {
+                    if (response.status != [HttpClientConfig sharedInstance].successStatus) {
                         [subscriber sendError:response.error];
                     } else {
                         [subscriber sendNext:response];
@@ -145,7 +166,7 @@ static HttpClient *_httpClient = nil;
             }];
         } success:^(NSURLSessionDataTask *_Nonnull task, id _Nonnull responseObject) {
             BMResponse *response = [self responseWithJson:responseObject];
-            if (response.status) {
+            if (response.status != [HttpClientConfig sharedInstance].successStatus) {
                 [subscriber sendError:response.error];
             } else {
                 [subscriber sendNext:response];
@@ -165,13 +186,36 @@ static HttpClient *_httpClient = nil;
 - (NSURLSessionTask *)get:(BMRequest *)request finish:(finishBlock)reponse;
 {
     @weakify(self);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
     NSURLSessionDataTask *task = [self.manager GET:request.path parameters:request.params success:^(NSURLSessionDataTask *_Nonnull task, id _Nonnull responseObject) {
+#pragma clang diagnostic pop
+        @strongify(self);
         BMResponse *response = [self responseWithJson:responseObject];
         reponse(response);
     } failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
-        BMResponse *response = [BMResponse new];
-        response.error = error;
-        reponse(response);
+        @strongify(self);
+        NSData *responseData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+        if (!responseData) {
+            BMResponse *response = [BMResponse new];
+            response.error = error;
+            reponse(response);
+        } else {
+            NSError *jsonError = nil;
+            NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&jsonError];
+            if (responseDict && [responseDict isKindOfClass:[NSDictionary class]]) {
+                BMResponse *response = [self responseWithJson:responseDict];
+                reponse(response);
+            } else if (jsonError) {
+                BMResponse *response = [BMResponse new];
+                response.error = jsonError;
+                reponse(response);
+            } else {
+                BMResponse *response = [BMResponse new];
+                response.error = error;
+                reponse(response);
+            }
+        }
     }];
     return task;
 }
@@ -179,11 +223,15 @@ static HttpClient *_httpClient = nil;
 - (NSURLSessionTask *)post:(BMRequest *)request finish:(finishBlock)reponse;
 {
     @weakify(self);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
     NSURLSessionDataTask *task = [self.manager POST:request.path parameters:request.params success:^(NSURLSessionDataTask *_Nonnull task, id _Nonnull responseObject) {
+#pragma clang diagnostic pop
         @strongify(self);
         BMResponse *response = [self responseWithJson:responseObject];
         reponse(response);
     } failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
+        @strongify(self);
         NSData *responseData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
         if (!responseData) {
             BMResponse *response = [BMResponse new];
@@ -211,7 +259,39 @@ static HttpClient *_httpClient = nil;
 
 - (NSURLSessionTask *)uploadWith:(BMRequest *)request finish:(finishBlock)reponse;
 {
-    
+    @weakify(self);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
+    NSURLSessionDataTask *task = [self.manager POST:request.path parameters:request.params constructingBodyWithBlock:request.constrauctingBlock success:^(NSURLSessionDataTask *_Nonnull task, id _Nonnull responseObject) {
+#pragma clang diagnostic pop
+        @strongify(self);
+        BMResponse *response = [self responseWithJson:responseObject];
+        reponse(response);
+    } failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
+        @strongify(self);
+        NSData *responseData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+        if (!responseData) {
+            BMResponse *response = [BMResponse new];
+            response.error = error;
+            reponse(response);
+        } else {
+            NSError *jsonError = nil;
+            NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&jsonError];
+            if (responseDict && [responseDict isKindOfClass:[NSDictionary class]]) {
+                BMResponse *response = [self responseWithJson:responseDict];
+                reponse(response);
+            } else if (jsonError) {
+                BMResponse *response = [BMResponse new];
+                response.error = jsonError;
+                reponse(response);
+            } else {
+                BMResponse *response = [BMResponse new];
+                response.error = error;
+                reponse(response);
+            }
+        }
+    }];
+    return task;
 }
 #endif
 

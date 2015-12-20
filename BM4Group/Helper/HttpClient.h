@@ -16,7 +16,7 @@
 
 FOUNDATION_EXTERN NSString *const kHttpClientErrorDomain;
 
-typedef void(^finishBlock)(BMResponse *);
+typedef void(^finishBlock)(BMResponse *response);
 
 @interface HttpClient : NSObject
 

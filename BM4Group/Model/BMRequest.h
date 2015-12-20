@@ -10,7 +10,7 @@
 
 @protocol AFMultipartFormData;
 
-typedef void(^AFConstructingBlock)(id<AFMultipartFormData>);
+typedef void(^AFConstructingBlock)(id<AFMultipartFormData> formData);
 
 @interface BMRequest : BMBaseModel
 
