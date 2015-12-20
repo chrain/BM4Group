@@ -25,6 +25,10 @@
 		3C1284731C25421C0014D953 /* BMBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C1284641C25421C0014D953 /* BMBaseModel.m */; };
 		3C1284741C25421C0014D953 /* BMPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C1284661C25421C0014D953 /* BMPage.m */; };
 		3C1284751C25421C0014D953 /* BMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C1284691C25421C0014D953 /* BMUtils.m */; };
+		3C4D42151C265EBC00AC8EA4 /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4D42141C265EBC00AC8EA4 /* HttpClient.m */; };
+		3C4D42181C265EC400AC8EA4 /* HttpClientConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4D42171C265EC400AC8EA4 /* HttpClientConfig.m */; };
+		3C4D421D1C265EDE00AC8EA4 /* BMRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4D421A1C265EDE00AC8EA4 /* BMRequest.m */; };
+		3C4D421E1C265EDE00AC8EA4 /* BMResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4D421C1C265EDE00AC8EA4 /* BMResponse.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +68,14 @@
 		3C1284661C25421C0014D953 /* BMPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMPage.m; sourceTree = "<group>"; };
 		3C1284681C25421C0014D953 /* BMUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMUtils.h; sourceTree = "<group>"; };
 		3C1284691C25421C0014D953 /* BMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMUtils.m; sourceTree = "<group>"; };
+		3C4D42131C265EBC00AC8EA4 /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
+		3C4D42141C265EBC00AC8EA4 /* HttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClient.m; sourceTree = "<group>"; };
+		3C4D42161C265EC400AC8EA4 /* HttpClientConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClientConfig.h; sourceTree = "<group>"; };
+		3C4D42171C265EC400AC8EA4 /* HttpClientConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClientConfig.m; sourceTree = "<group>"; };
+		3C4D42191C265EDE00AC8EA4 /* BMRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMRequest.h; sourceTree = "<group>"; };
+		3C4D421A1C265EDE00AC8EA4 /* BMRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMRequest.m; sourceTree = "<group>"; };
+		3C4D421B1C265EDE00AC8EA4 /* BMResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMResponse.h; sourceTree = "<group>"; };
+		3C4D421C1C265EDE00AC8EA4 /* BMResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMResponse.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +136,7 @@
 				3C1284611C25421C0014D953 /* BM4Group.h */,
 				3C12844B1C25421C0014D953 /* Base */,
 				3C1284621C25421C0014D953 /* Model */,
+				3C4D42121C265EA100AC8EA4 /* Helper */,
 				3C1284671C25421C0014D953 /* Utility */,
 			);
 			name = BM4Group;
@@ -177,6 +190,10 @@
 			children = (
 				3C1284631C25421C0014D953 /* BMBaseModel.h */,
 				3C1284641C25421C0014D953 /* BMBaseModel.m */,
+				3C4D42191C265EDE00AC8EA4 /* BMRequest.h */,
+				3C4D421A1C265EDE00AC8EA4 /* BMRequest.m */,
+				3C4D421B1C265EDE00AC8EA4 /* BMResponse.h */,
+				3C4D421C1C265EDE00AC8EA4 /* BMResponse.m */,
 				3C1284651C25421C0014D953 /* BMPage.h */,
 				3C1284661C25421C0014D953 /* BMPage.m */,
 			);
@@ -190,6 +207,17 @@
 				3C1284691C25421C0014D953 /* BMUtils.m */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		3C4D42121C265EA100AC8EA4 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				3C4D42131C265EBC00AC8EA4 /* HttpClient.h */,
+				3C4D42141C265EBC00AC8EA4 /* HttpClient.m */,
+				3C4D42161C265EC400AC8EA4 /* HttpClientConfig.h */,
+				3C4D42171C265EC400AC8EA4 /* HttpClientConfig.m */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,14 +290,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C4D42181C265EC400AC8EA4 /* HttpClientConfig.m in Sources */,
+				3C4D421E1C265EDE00AC8EA4 /* BMResponse.m in Sources */,
 				3C1284701C25421C0014D953 /* UIImage+Orientation.m in Sources */,
 				3C12840F1C25419B0014D953 /* ViewController.m in Sources */,
 				3C12846D1C25421C0014D953 /* BMEnableIQKeyboardView.m in Sources */,
 				3C1284731C25421C0014D953 /* BMBaseModel.m in Sources */,
 				3C1284751C25421C0014D953 /* BMUtils.m in Sources */,
 				3C12846A1C25421C0014D953 /* NSNull+Exist.m in Sources */,
+				3C4D42151C265EBC00AC8EA4 /* HttpClient.m in Sources */,
 				3C12846E1C25421C0014D953 /* BMSpinnerView.m in Sources */,
 				3C12846F1C25421C0014D953 /* BMUnderLineView.m in Sources */,
+				3C4D421D1C265EDE00AC8EA4 /* BMRequest.m in Sources */,
 				3C1284741C25421C0014D953 /* BMPage.m in Sources */,
 				3C1284711C25421C0014D953 /* UIView+AutoLayoutDebugging.m in Sources */,
 				3C12846B1C25421C0014D953 /* NSString+Exist.m in Sources */,
@@ -423,6 +455,7 @@
 				3C12841D1C25419B0014D953 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

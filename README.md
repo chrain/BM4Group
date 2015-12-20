@@ -26,6 +26,6 @@ Installation
 
 ### CocoaPods
 
-1. Add `pod "BM4Group"` to your Podfile.
+1. Add 'pod 'BM4Group', :git => 'https://github.com/chrain/BM4Group.git''
 2. Run `pod install` or `pod update`.
 3. Import \<BM4Group/BM4Group.h\>.
