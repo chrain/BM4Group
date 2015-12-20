@@ -36,8 +36,10 @@ FOUNDATION_EXPORT const unsigned char BM4GroupVersionString[];
 
 #import <BM4Group/HttpClient.h>
 #import <BM4Group/HttpClientConfig.h>
+#import <BM4Group/AccountHelper.h>
 
 #import <BM4Group/BMUtils.h>
+#import <BM4Group/StoreUtility.h>
 
 #else
 
@@ -59,7 +61,9 @@ FOUNDATION_EXPORT const unsigned char BM4GroupVersionString[];
 
 #import "HttpClient.h"
 #import "HttpClientConfig.h"
+#import "AccountHelper.h"
 
 #import "BMUtils.h"
+#import "StoreUtility.h"
 
 #endif
