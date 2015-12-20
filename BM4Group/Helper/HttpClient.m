@@ -8,6 +8,10 @@
 #import "HttpClient.h"
 #import "NSString+Exist.h"
 
+#if __has_include(<YYKit/YYKit.h>)
+#import "YYKit.h"
+#endif
+
 #if __has_include(<AFNetworking/AFNetworking.h>)
 
 NSString *const kHttpClientErrorDomain = @"com.chrain.errorDomain";
