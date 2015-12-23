@@ -10,6 +10,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import "BMBaseModel.h"
 
+FOUNDATION_EXTERN NSString *const kCurrentUserKey;
+
 @interface AccountHelper<T: BMBaseModel *> : NSObject
 
 /**

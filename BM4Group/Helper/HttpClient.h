@@ -13,6 +13,9 @@
 #import "BMRequest.h"
 #import "BMResponse.h"
 #import "AFNetworking.h"
+#if __has_include(<ReactiveCocoa/ReactiveCocoa.h>)
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#endif
 
 FOUNDATION_EXTERN NSString *const kHttpClientErrorDomain;
 

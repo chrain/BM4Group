@@ -13,6 +13,12 @@ NSString *const kCurrentUserKey = @"kCurrentUserKey";
 
 static AccountHelper *_accountHelper = nil;
 
+@interface AccountHelper ()
+
+@property (nonatomic, strong, readwrite) id user;
+
+@end
+
 @implementation AccountHelper
 
 + (instancetype)sharedInstance
