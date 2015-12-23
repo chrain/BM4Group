@@ -160,8 +160,7 @@ static HttpClient *_httpClient = nil;
     @weakify(self);
     return [RACSignal createSignal:^RACDisposable *(id <RACSubscriber> subscriber) {
         @strongify(self);
-        NSURLSessionDataTask *task = [self.manager POST:request.path parameters:request.params constructingBodyWithBlock:^(id <AFMultipartFormData> _Nonnull formData) {
-            [request.uploadData enumerateKeysAndObjectsUsingBlock:request.constrauctingBlock success:^(NSURLSessionDataTask *_Nonnull task, id _Nonnull responseObject) {
+        NSURLSessionDataTask *task = [self.manager POST:request.path parameters:request.params constructingBodyWithBlock:request.constrauctingBlock success:^(NSURLSessionDataTask *_Nonnull task, id _Nonnull responseObject) {
             BMResponse *response = [self responseWithJson:responseObject];
             if (response.status != [HttpClientConfig sharedInstance].successStatus) {
                 [subscriber sendError:response.error];
