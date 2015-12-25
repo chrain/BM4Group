@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.source_files = 'BM4Group/**/*.{h,m}'
   s.public_header_files = 'BM4Group/**/*.{h}'
 
-  s.ios.vendored_frameworks = 'Vendor/Reveal.framework'
+  #s.ios.vendored_frameworks = 'Vendor/Reveal.framework'
 
   s.dependency 'IQKeyboardManager'
   s.dependency 'MBProgressHUD'
