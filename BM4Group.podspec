@@ -19,16 +19,13 @@ Pod::Spec.new do |s|
   #s.ios.vendored_frameworks = 'Vendor/Reveal.framework'
 
   s.dependency 'IQKeyboardManager'
-  s.dependency 'MBProgressHUD'
-  s.dependency 'AFNetworking'
-  s.dependency 'SDWebImage'
+  s.dependency 'SVProgressHUD'
+  s.dependency 'AFNetworking/NSURLSession'
   s.dependency 'MJExtension'
   s.dependency 'MJRefresh'
   s.dependency 'Masonry'
   s.dependency 'DZNEmptyDataSet'
   s.dependency 'YYKit'
-  s.dependency 'UIActivityIndicator-for-SDWebImage'
   s.dependency 'CTAssetsPickerController'
-  s.dependency 'LxDBAnything'
 
 end
