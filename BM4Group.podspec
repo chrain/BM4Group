@@ -18,14 +18,14 @@ Pod::Spec.new do |s|
 
   #s.ios.vendored_frameworks = 'Vendor/Reveal.framework'
 
+  s.dependency 'CTAssetsPickerController'
   s.dependency 'IQKeyboardManager'
+  s.dependency 'DZNEmptyDataSet'
   s.dependency 'SVProgressHUD'
-  s.dependency 'AFNetworking/NSURLSession'
+  s.dependency 'AFNetworking'
   s.dependency 'MJExtension'
   s.dependency 'MJRefresh'
   s.dependency 'Masonry'
-  s.dependency 'DZNEmptyDataSet'
   s.dependency 'YYKit'
-  s.dependency 'CTAssetsPickerController'
 
 end

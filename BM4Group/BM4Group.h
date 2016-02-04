@@ -29,11 +29,13 @@ FOUNDATION_EXPORT const unsigned char BM4GroupVersionString[];
 #import <BM4Group/BMEnableIQKeyboardView.h>
 #import <BM4Group/UIImage+Orientation.h>
 #import <BM4Group/UIView+AutoLayoutDebugging.h>
-#import <BM4Group/UIViewController+Hint.h>
+#import <BM4Group/UIViewController+Alert.h>
+#import <BM4Group/UIViewController+Message.h>
 
 #import <BM4Group/BMBaseModel.h>
 #import <BM4Group/BMPage.h>
 
+#import <BM4Group/CYToast.h>
 #import <BM4Group/HttpClient.h>
 #import <BM4Group/HttpClientConfig.h>
 #import <BM4Group/AccountHelper.h>
@@ -54,11 +56,13 @@ FOUNDATION_EXPORT const unsigned char BM4GroupVersionString[];
 #import "BMEnableIQKeyboardView.h"
 #import "UIImage+Orientation.h"
 #import "UIView+AutoLayoutDebugging.h"
-#import "UIViewController+Hint.h"
+#import "UIViewController+Alert.h"
+#import "UIViewController+Message.h"
 
 #import "BMBaseModel.h"
 #import "BMPage.h"
 
+#import "CYToast.h"
 #import "HttpClient.h"
 #import "HttpClientConfig.h"
 #import "AccountHelper.h"

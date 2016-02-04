@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 蓝色互动武汉项目4部. All rights reserved.
 //
 
-#import "UIViewController+Hint.h"
+#import "UIViewController+Alert.h"
 #import <objc/runtime.h>
 
 #if __has_include(<MBProgressHUD/MBProgressHUD.h>)

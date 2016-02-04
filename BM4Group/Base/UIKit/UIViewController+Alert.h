@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (Hint)
+@interface UIViewController (Alert)
 
 #if __has_include(<MBProgressHUD/MBProgressHUD.h>)
 /**
@@ -16,10 +16,10 @@
  *
  *  @param hint message
  */
-- (void)showHint:(NSString *)hint;
+- (void)showHint:(NSString *)hint DEPRECATED_ATTRIBUTE;
 
 /// 从默认(showHint:)显示的位置再往上(下)yOffset
-- (void)showHint:(NSString *)hint yOffset:(float)yOffset;
+- (void)showHint:(NSString *)hint yOffset:(float)yOffset DEPRECATED_ATTRIBUTE;
 
 #endif
 
@@ -28,7 +28,7 @@
  *
  *  @param message message
  */
-- (void)alertWith:(NSString *)message;
+- (void)alertWith:(NSString *)message ;
 
 /**
  *  快快速弹出一个显示alert的消息，确定按钮可以传入对应操作。
