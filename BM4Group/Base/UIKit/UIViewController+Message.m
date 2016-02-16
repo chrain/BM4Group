@@ -9,6 +9,7 @@
 #import "UIViewController+Message.h"
 
 #if __has_include(<YYKit/YYKit.h>)
+#import <YYKit/YYKit.h>
 
 @implementation UIViewController (Message)
 

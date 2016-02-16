@@ -22,8 +22,6 @@
 		3C1283ED1C253BF20014D953 /* UIImage+Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C1283D11C253BF20014D953 /* UIImage+Orientation.m */; };
 		3C1283EE1C253BF20014D953 /* UIView+AutoLayoutDebugging.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C1283D21C253BF20014D953 /* UIView+AutoLayoutDebugging.h */; };
 		3C1283EF1C253BF20014D953 /* UIView+AutoLayoutDebugging.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C1283D31C253BF20014D953 /* UIView+AutoLayoutDebugging.m */; };
-		3C1283F01C253BF20014D953 /* UIViewController+Hint.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C1283D41C253BF20014D953 /* UIViewController+Hint.h */; };
-		3C1283F11C253BF20014D953 /* UIViewController+Hint.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C1283D51C253BF20014D953 /* UIViewController+Hint.m */; };
 		3C1283F21C253BF20014D953 /* BMUnderLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C1283D61C253BF20014D953 /* BMUnderLineView.h */; };
 		3C1283F31C253BF20014D953 /* BMUnderLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C1283D71C253BF20014D953 /* BMUnderLineView.m */; };
 		3C1283F41C253BF20014D953 /* BM4Group.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C1283D81C253BF20014D953 /* BM4Group.h */; };
@@ -53,8 +51,6 @@
 		3C1283D11C253BF20014D953 /* UIImage+Orientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Orientation.m"; sourceTree = "<group>"; };
 		3C1283D21C253BF20014D953 /* UIView+AutoLayoutDebugging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayoutDebugging.h"; sourceTree = "<group>"; };
 		3C1283D31C253BF20014D953 /* UIView+AutoLayoutDebugging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayoutDebugging.m"; sourceTree = "<group>"; };
-		3C1283D41C253BF20014D953 /* UIViewController+Hint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Hint.h"; sourceTree = "<group>"; };
-		3C1283D51C253BF20014D953 /* UIViewController+Hint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Hint.m"; sourceTree = "<group>"; };
 		3C1283D61C253BF20014D953 /* BMUnderLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMUnderLineView.h; sourceTree = "<group>"; };
 		3C1283D71C253BF20014D953 /* BMUnderLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMUnderLineView.m; sourceTree = "<group>"; };
 		3C1283D81C253BF20014D953 /* BM4Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BM4Group.h; sourceTree = "<group>"; };
@@ -148,8 +144,6 @@
 				3C1283D11C253BF20014D953 /* UIImage+Orientation.m */,
 				3C1283D21C253BF20014D953 /* UIView+AutoLayoutDebugging.h */,
 				3C1283D31C253BF20014D953 /* UIView+AutoLayoutDebugging.m */,
-				3C1283D41C253BF20014D953 /* UIViewController+Hint.h */,
-				3C1283D51C253BF20014D953 /* UIViewController+Hint.m */,
 				3C1283D61C253BF20014D953 /* BMUnderLineView.h */,
 				3C1283D71C253BF20014D953 /* BMUnderLineView.m */,
 			);
@@ -189,7 +183,6 @@
 				3C1283F91C253BF20014D953 /* BMUtils.h in Headers */,
 				3C1283E41C253BF20014D953 /* NSString+Exist.h in Headers */,
 				3C1283F71C253BF20014D953 /* BMPage.h in Headers */,
-				3C1283F01C253BF20014D953 /* UIViewController+Hint.h in Headers */,
 				3C1283F21C253BF20014D953 /* BMUnderLineView.h in Headers */,
 				3C1283F51C253BF20014D953 /* BMBaseModel.h in Headers */,
 				3C1283E61C253BF20014D953 /* BMDashLine.h in Headers */,
@@ -274,7 +267,6 @@
 				3C1283FA1C253BF20014D953 /* BMUtils.m in Sources */,
 				3C1283E51C253BF20014D953 /* NSString+Exist.m in Sources */,
 				3C1283EF1C253BF20014D953 /* UIView+AutoLayoutDebugging.m in Sources */,
-				3C1283F11C253BF20014D953 /* UIViewController+Hint.m in Sources */,
 				3C1283EB1C253BF20014D953 /* BMSpinnerView.m in Sources */,
 				3C1283F61C253BF20014D953 /* BMBaseModel.m in Sources */,
 				3C1283F31C253BF20014D953 /* BMUnderLineView.m in Sources */,

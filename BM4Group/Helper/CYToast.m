@@ -7,9 +7,9 @@
 //
 
 #import "CYToast.h"
-#import "NSString+Exist.h"
 
 #if __has_include(<YYKit/YYKit.h>)
+#import <YYKit/YYKit.h>
 
 @implementation CYToast
 
@@ -32,7 +32,7 @@ static UILabel *label = nil;
 
 +(void)makeText:(NSString *)text duration:(CFTimeInterval)duration offset:(CGFloat)offset
 {
-    if (![text isExist]) return;
+    if (![text isNotBlank]) return;
     
     static CGFloat padding = 10.f;
     static dispatch_once_t onceToken;
