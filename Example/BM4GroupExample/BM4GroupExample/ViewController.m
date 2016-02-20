@@ -26,6 +26,10 @@
     NSParameterAssert(![name isExist]);
     name = @"       ";
     NSParameterAssert(![name isExist]);
+    
+//    NSLog(@"这是个测试");
+    BMLog(@"fdsdf");
+    BMError(@"dsfsf");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,10 +38,19 @@
 }
 
 - (IBAction)buttonAction:(id)sender {
-    
-    //    [self.spinnerView showBelowWith:sender];
-    
-    [BMUtils callWithPhoneNumber:@"13041235055"];
+    switch ([sender tag]) {
+        case 0:
+            [BMToast makeText:@"这是一个Toast\n这是一个Toast"];
+            break;
+        case 1:
+            [self showMessage:@"这是一个message\n这是一个message"];
+            break;
+        case 2:
+            [self.spinnerView showBelowWith:sender];
+            break;
+        default:
+            break;
+    }
 }
 
 @end

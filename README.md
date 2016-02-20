@@ -13,13 +13,6 @@ It's so huge that I split it into several independent components:
 * [常用功能](https://github.com/chrain/BM4Group) — 一些常用的功能集合。
 * [依赖常用第三方库](https://github.com/chrain/BM4Group) — 开发中常用的第三方框架集合。
 
-Example Project
-==============
-See `Example/BM4GroupExample.xcodeproj`
-
-<img src="https://raw.github.com/chrain/BM4Group/master/Example/Snapshots/1.png" width="320"><br/>
-<img src="https://raw.github.com/chrain/BM4Group/master/Example/Snapshots/2.png" width="320"> <img src="https://raw.github.com/chrain/BM4Group/master/Demo/Snapshots/3.png" width="320">
-
 
 Installation
 ==============
@@ -29,3 +22,9 @@ Installation
 1. Add `pod 'BM4Group', :git => 'https://github.com/chrain/BM4Group.git'`
 2. Run `pod install` or `pod update`.
 3. Import \<BM4Group/BM4Group.h\>.
+
+
+项目常用第三方
+==============
+* `CTAssetsPickerController` 系统图片多选
+* `Masonry` 链式Coding写AutoLayout

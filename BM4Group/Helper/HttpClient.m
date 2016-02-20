@@ -6,6 +6,7 @@
 //
 //
 #import "HttpClient.h"
+#import "HttpClientConfig.h"
 #import "NSString+Exist.h"
 
 #if __has_include(<YYKit/YYKit.h>)

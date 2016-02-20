@@ -74,7 +74,7 @@
         if (success) {
             [self addSkipBackupAttributeToItemAtPath:path];
         } else {
-            BMError(error);
+            BMError(@"%@", error);
         }
     }
     return path;
@@ -91,7 +91,7 @@
         if (success) {
             [self addSkipBackupAttributeToItemAtPath:path];
         } else {
-            BMError(error);
+            BMError(@"%@", error);
         }
     }
     return path;
@@ -105,7 +105,7 @@
     
     NSError *error = nil;
     BOOL success = [URL setResourceValue:@(YES) forKey:NSURLIsExcludedFromBackupKey error:&error];
-    if (error) BMError(error);
+    if (error) BMError(@"%@", error);
     
     return success;
 }

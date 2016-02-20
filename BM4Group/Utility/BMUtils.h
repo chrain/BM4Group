@@ -46,4 +46,9 @@
 ///获得某个NSDate的农历表示法
 + (NSString *)getChineseCalendarWithDate:(NSDate *)date;
 
+/**
+ *  设置日志控制
+ */
++ (void)setupLog;
+
 @end

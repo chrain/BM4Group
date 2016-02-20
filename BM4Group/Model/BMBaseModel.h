@@ -7,7 +7,7 @@
 //
 
 #if __has_include(<MJExtension/MJExtension.h>)
-#import "MJExtension.h"
+#import <MJExtension/MJExtension.h>
 #else
 #import <Foundation/Foundation.h>
 #endif
@@ -27,7 +27,5 @@
 @property (nonatomic, copy) NSString *name;     ///<模型对应的name
 
 @property (nonatomic, assign) BOOL selected;    ///<模型对应的选择状态。Tips:多用于本地选中删除。
-
-+ (NSDateFormatter *)defaultDateFormatter;
 
 @end

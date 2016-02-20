@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#if __has_include(<YYKit/YYKit.h>)
-
-@interface CYToast : NSObject
+@interface BMToast : NSObject
 
 + (void)makeText:(NSString *)text;
 
@@ -21,5 +19,3 @@
 + (void)makeText:(NSString *)text duration:(CFTimeInterval)duration offset:(CGFloat)offset;
 
 @end
-
-#endif

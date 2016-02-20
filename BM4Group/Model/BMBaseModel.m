@@ -8,7 +8,8 @@
 
 #import "BMBaseModel.h"
 
-#if __has_include(<MJExtension/MJExtension.h>)
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused"
 /// Parse string to date.
 static NSDate *BMNSDateFromString(__unsafe_unretained NSString *string) {
     typedef NSDate* (^YYNSDateParseBlock)(NSString *string);
@@ -82,7 +83,7 @@ static NSDate *BMNSDateFromString(__unsafe_unretained NSString *string) {
     return parser(string);
 #undef kParserNum
 }
-#endif
+#pragma clang diagnostic pop
 
 @implementation BMBaseModel
 
@@ -110,12 +111,5 @@ static NSDate *BMNSDateFromString(__unsafe_unretained NSString *string) {
     }
 }
 #endif
-
-+ (NSDateFormatter *)defaultDateFormatter
-{
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
-    return formatter;
-}
 
 @end

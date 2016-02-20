@@ -62,7 +62,7 @@ FOUNDATION_EXPORT const unsigned char BM4GroupVersionString[];
 #import "BMBaseModel.h"
 #import "BMPage.h"
 
-#import "CYToast.h"
+#import "BMToast.h"
 #import "HttpClient.h"
 #import "HttpClientConfig.h"
 #import "AccountHelper.h"

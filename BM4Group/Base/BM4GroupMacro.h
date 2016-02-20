@@ -9,20 +9,20 @@
 #ifndef BM4GroupMacro_h
 #define BM4GroupMacro_h
 
-///------
-/// NSLog
-///------
-
-#ifdef DEBUG
-#define BMLog(...) NSLog(__VA_ARGS__)
+#if __has_include(<CocoaLumberjack/CocoaLumberjack.h>)
+#import <CocoaLumberjack/CocoaLumberjack.h>
+#define BMLog(frmt, ...) DDLogDebug(__VA_ARGS__)
+#define BMError(frmt, ...) DDLogError(__VA_ARGS__)
 #else
-#define BMNSLog(...) {}
-#endif
 
-///----------------------
-/// ErrorLog
-///----------------------
-#define BMError(error) NSLog(@"Error: %@", error)
+#define XCODE_COLORS_ESCAPE @"\033["
+#define XCODE_COLORS_RESET_FG  XCODE_COLORS_ESCAPE @"fg;" // Clear any foreground color
+#define XCODE_COLORS_RESET_BG  XCODE_COLORS_ESCAPE @"bg;" // Clear any background color
+#define XCODE_COLORS_RESET     XCODE_COLORS_ESCAPE @";"   // Clear any foreground or background color
+
+#define BMLog(frmt, ...) NSLog((XCODE_COLORS_ESCAPE @"fg31,81,255;" frmt XCODE_COLORS_RESET), ##__VA_ARGS__)
+#define BMError(frmt, ...) NSLog((XCODE_COLORS_ESCAPE @"fg255,0,0;" frmt XCODE_COLORS_RESET), ##__VA_ARGS__)
+#endif
 
 ///------
 /// Color

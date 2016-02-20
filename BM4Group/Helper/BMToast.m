@@ -6,12 +6,15 @@
 //  Copyright © 2016年 陈宇. All rights reserved.
 //
 
-#import "CYToast.h"
+#import "BMToast.h"
+#import "NSString+Exist.h"
+#import "UIView+Extension.h"
 
 #if __has_include(<YYKit/YYKit.h>)
 #import <YYKit/YYKit.h>
+#endif
 
-@implementation CYToast
+@implementation BMToast
 
 + (void)makeText:(NSString *)text
 {
@@ -32,7 +35,7 @@ static UILabel *label = nil;
 
 +(void)makeText:(NSString *)text duration:(CFTimeInterval)duration offset:(CGFloat)offset
 {
-    if (![text isNotBlank]) return;
+    if (![text isExist]) return;
     
     static CGFloat padding = 10.f;
     static dispatch_once_t onceToken;
@@ -44,12 +47,14 @@ static UILabel *label = nil;
         label.font = [UIFont systemFontOfSize:14.f];
         label.textColor = [UIColor whiteColor];
         label.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
-//        label.textContainerInset = UIEdgeInsetsMake(padding, padding * 2, padding, padding * 2);
+#if __has_include(<YYKit/YYKit.h>)
+        label.textContainerInset = UIEdgeInsetsMake(padding, padding * 2, padding, padding * 2);
+#endif
         label.layer.cornerRadius = 5.f;
         label.layer.masksToBounds = YES;
     });
     
-    label.width = kScreenWidth - padding * 4;
+    label.width = [UIScreen mainScreen].bounds.size.width - padding * 4;
     label.size = [text sizeForFont:label.font size:CGSizeMake(label.width - 4 * padding, HUGE) mode:NSLineBreakByWordWrapping];
     label.width += padding * 3;
     label.height += padding * 1.4;
@@ -57,7 +62,7 @@ static UILabel *label = nil;
     UIView *superView = [UIApplication sharedApplication].keyWindow ?: [UIApplication sharedApplication].windows.lastObject;
     
     label.centerX = superView.centerX;
-    label.bottom = kScreenHeight - 60.f;
+    label.bottom = [UIScreen mainScreen].bounds.size.height - 60.f;
     
     [superView addSubview:label];
     label.text = text;
@@ -84,5 +89,3 @@ static UILabel *label = nil;
 }
 
 @end
-
-#endif

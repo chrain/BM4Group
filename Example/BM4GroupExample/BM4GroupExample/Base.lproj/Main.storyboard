@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nef-dy-MpC">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -18,14 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ye-Vg-lL3" customClass="BMDashLine">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ye-Vg-lL3" customClass="BMDashLine">
                                 <rect key="frame" x="0.0" y="60" width="600" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="3yf-h2-Ch7"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Sl-zU-Q9k" customClass="BMUnderLineView">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Sl-zU-Q9k" customClass="BMUnderLineView">
                                 <rect key="frame" x="40" y="69" width="520" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -37,33 +37,91 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vX-9W-BVs">
-                                <rect key="frame" x="40" y="127" width="520" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="3M0-JQ-fQ0"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="buttonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bqb-Pf-2Es"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="VhL-eh-P0M">
+                                <rect key="frame" x="20" y="129" width="560" height="427"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vX-9W-BVs">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="71"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="buttonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bqb-Pf-2Es"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUk-L8-Iu1">
+                                        <rect key="frame" x="0.0" y="71" width="560" height="72"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="buttonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IfZ-nI-uTd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WU3-lM-8EA">
+                                        <rect key="frame" x="0.0" y="143" width="560" height="71"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="buttonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gnp-hH-xAc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0w-oR-epP">
+                                        <rect key="frame" x="0.0" y="214" width="560" height="71"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="buttonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tr8-sy-oW7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcA-py-KdI">
+                                        <rect key="frame" x="0.0" y="285" width="560" height="72"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="buttonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="39G-0U-vhJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gk2-AH-pP5">
+                                        <rect key="frame" x="0.0" y="356" width="560" height="71"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="buttonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kcx-kC-wp0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="2Ye-Vg-lL3" secondAttribute="trailing" id="1ri-hO-Ba0"/>
+                            <constraint firstItem="VhL-eh-P0M" firstAttribute="top" secondItem="1Sl-zU-Q9k" secondAttribute="bottom" constant="10" id="5PU-6h-H7f"/>
                             <constraint firstItem="2Ye-Vg-lL3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="Bu4-Vc-kau"/>
-                            <constraint firstItem="2vX-9W-BVs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="40" id="QQE-Xt-mYQ"/>
                             <constraint firstItem="1Sl-zU-Q9k" firstAttribute="top" secondItem="2Ye-Vg-lL3" secondAttribute="bottom" constant="8" id="U39-Dv-H2g"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VhL-eh-P0M" secondAttribute="bottom" id="djS-Ts-oTp"/>
                             <constraint firstItem="2Ye-Vg-lL3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="efa-MO-9mh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1Sl-zU-Q9k" secondAttribute="trailing" constant="20" id="flB-OY-KI6"/>
                             <constraint firstItem="1Sl-zU-Q9k" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="j4q-x5-wo2"/>
-                            <constraint firstAttribute="trailing" secondItem="2vX-9W-BVs" secondAttribute="trailing" constant="40" id="nTv-vh-ekd"/>
-                            <constraint firstItem="2vX-9W-BVs" firstAttribute="top" secondItem="1Sl-zU-Q9k" secondAttribute="bottom" constant="8" id="yVm-lD-ERe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VhL-eh-P0M" secondAttribute="trailing" id="liY-94-BpQ"/>
+                            <constraint firstItem="VhL-eh-P0M" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="pn5-Ua-buK"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="daE-L4-aI3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1241" y="353"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YDo-6N-6IU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nef-dy-MpC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ahy-0j-76t">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="AlL-lW-5nX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HDG-nJ-Hnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="535" y="353"/>
         </scene>
     </scenes>
 </document>

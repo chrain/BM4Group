@@ -21,7 +21,7 @@
 @property (nonatomic, assign) NSTimeInterval timeout;
 
 /**
- *  服务器反悔成功的status码。默认为0；
+ *  服务器反回成功的status码。默认为0；
  */
 @property (nonatomic, assign) NSInteger successStatus;
 

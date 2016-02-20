@@ -7,9 +7,12 @@
 //
 
 #import "UIViewController+Message.h"
+#import "NSString+Exist.h"
+#import "UIView+Extension.h"
 
 #if __has_include(<YYKit/YYKit.h>)
 #import <YYKit/YYKit.h>
+#endif
 
 @implementation UIViewController (Message)
 
@@ -36,8 +39,8 @@ static UILabel *_label;
 
 - (void)showMessage:(NSString *)message type:(HintType)type offset:(CGFloat)offset
 {
-    if (![message isNotBlank]) return;
-
+    if (![message isExist]) return;
+    
     static CGFloat padding = 10.f;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -54,7 +57,7 @@ static UILabel *_label;
         _label.font = [UIFont systemFontOfSize:14.f];
         _label.textColor = [UIColor whiteColor];
     });
-
+    
     // 设置背景色
     switch (type) {
         case HintTypeSuccessful:
@@ -64,11 +67,14 @@ static UILabel *_label;
             _label.backgroundColor = [UIColor colorWithRed:0.963 green:0.085 blue:0.078 alpha:0.830];
             break;
     }
+    
+    CGRect labelF = _label.frame;
+    labelF.size.width = self.view.bounds.size.width;
+    labelF.size.height = [message sizeForFont:_label.font size:CGSizeMake(labelF.size.width - 4 * padding, HUGE) mode:NSLineBreakByWordWrapping].height + 2 * padding;
+    _label.frame = labelF;
 
-    _label.width = self.view.width;
-    _label.height = [message sizeForFont:_label.font size:CGSizeMake(_label.width - 4 * padding, HUGE) mode:NSLineBreakByWordWrapping].height + 2 * padding;
     _label.text = message;
-
+    
     if (_label.superview) {
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideMessage) object:nil];
         _label.top = [self defaultOffset] + offset;
@@ -93,19 +99,19 @@ static UILabel *_label;
     [UIView animateWithDuration:0.2 animations:^{
         _label.transform = CGAffineTransformIdentity;
     }
-        completion:^(BOOL finished) {
-            [_label removeFromSuperview];
-        }];
+                     completion:^(BOOL finished) {
+                         [_label removeFromSuperview];
+                     }];
 }
 
 - (CGFloat)defaultOffset
 {
     CGFloat offset = 0.f;
-
+    
     if (![UIApplication sharedApplication].statusBarHidden) offset += 20.f;
-
+    
     if (self.navigationController && !self.navigationController.navigationBarHidden) offset += 44.f;
-
+    
     return offset;
 }
 
@@ -114,37 +120,4 @@ static UILabel *_label;
     return self.navigationController && ![self.navigationController.navigationBar isHidden];
 }
 
-/*
- - (void)showWithView:(UIView *)view
- {
- CABasicAnimation *showAnim = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
- showAnim.fromValue = @(- view.height);
- showAnim.toValue = @(view.height);
- showAnim.duration = 0.2;
- showAnim.fillMode = kCAFillModeForwards;
- showAnim.removedOnCompletion = NO;
- [view.layer addAnimation:showAnim forKey:@"showAnim"];
- }
- 
- - (void)hideWithView:(UIView *)view delay:(CFTimeInterval)time
- {
- CABasicAnimation *hideAnim = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
- hideAnim.delegate = self;
- NSLog(@"%@", view.layer.presentationLayer);
- hideAnim.toValue = @(([self isNavigationBarShow] ? 64 : 0) - view.height);
- hideAnim.duration = 0.2;
- hideAnim.beginTime = CACurrentMediaTime() + time;
- [view.layer addAnimation:hideAnim forKey:@"hideAnim"];
- }
- 
- - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
- {
- if (flag) {
- [_label removeFromSuperview];
- [_label.layer removeAllAnimations];
- }
- }
- */
 @end
-
-#endif

@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#if __has_include(<YYKit/YYKit.h>)
-
 typedef NS_ENUM(NSUInteger, HintType) {
     HintTypeSuccessful,
     HintTypeFailure,
@@ -51,4 +49,3 @@ typedef NS_ENUM(NSUInteger, HintType) {
 
 @end
 
-#endif

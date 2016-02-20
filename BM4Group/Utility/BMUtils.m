@@ -129,7 +129,23 @@ NSString *const kPreviewFeatureVersionKey = @"previewFeatureVersion";
     
     NSString *chineseCal_str =[NSString stringWithFormat: @"%@_%@_%@",y_str,m_str,d_str];
     
-    return chineseCal_str;  
+    return chineseCal_str;
+}
+
++ (void)setupLog
+{
+    setenv("XcodeColors", "YES", 0);
+#if __has_include(<CocoaLumberjack/CocoaLumberjack.h>)
+#ifdef DEBUG
+    static const DDLogLevel ddLogLevel = DDLogLevelAll;
+#else
+    static const DDLogLevel ddLogLevel = DDLogLevelInfo;
+#endif
+    [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
+    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor colorWithRed:0.122 green:0.319 blue:1.000 alpha:1.000] backgroundColor:nil forFlag:DDLogFlagDebug];
+    [DDLog addLogger:[DDTTYLogger sharedInstance] withLevel:DDLogLevelAll]; // TTY = Xcode console
+    [DDLog addLogger:[DDASLLogger sharedInstance] withLevel:DDLogLevelInfo]; // ASL = Apple System Logs
+#endif
 }
 
 @end
