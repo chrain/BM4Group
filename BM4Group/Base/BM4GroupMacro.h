@@ -22,8 +22,8 @@ static const DDLogLevel ddLogLevel = DDLogLevelAll;
 static const DDLogLevel ddLogLevel = DDLogLevelInfo;
 #endif
 
-#define BMLog(frmt, ...) DDLogDebug(__VA_ARGS__)
-#define BMError(frmt, ...) DDLogError(__VA_ARGS__)
+#define BMLog(...) DDLogDebug(__VA_ARGS__)
+#define BMError(...) DDLogError(__VA_ARGS__)
 
 #else
 

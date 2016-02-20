@@ -10,6 +10,10 @@
 #import <UIKit/UIWebView.h>
 #import "NSString+Exist.h"
 
+#if __has_include(<CocoaLumberjack/CocoaLumberjack.h>)
+#import <CocoaLumberjack/CocoaLumberjack.h>
+#endif
+
 NSString *const kPreviewFeatureVersionKey = @"previewFeatureVersion";
 
 @implementation BMUtils
@@ -138,8 +142,8 @@ NSString *const kPreviewFeatureVersionKey = @"previewFeatureVersion";
 #if __has_include(<CocoaLumberjack/CocoaLumberjack.h>)
     [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor colorWithRed:0.122 green:0.319 blue:1.000 alpha:1.000] backgroundColor:nil forFlag:DDLogFlagDebug];
-    [DDLog addLogger:[DDTTYLogger sharedInstance] withLevel:DDLogLevelAll]; // TTY = Xcode console
-    [DDLog addLogger:[DDASLLogger sharedInstance] withLevel:DDLogLevelInfo]; // ASL = Apple System Logs
+    [DDLog addLogger:[DDTTYLogger sharedInstance] withLevel:DDLogLevelAll];
+    [DDLog addLogger:[DDASLLogger sharedInstance] withLevel:DDLogLevelInfo];
 #endif
 }
 
