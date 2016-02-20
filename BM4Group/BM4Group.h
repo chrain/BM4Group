@@ -35,7 +35,7 @@ FOUNDATION_EXPORT const unsigned char BM4GroupVersionString[];
 #import <BM4Group/BMBaseModel.h>
 #import <BM4Group/BMPage.h>
 
-#import <BM4Group/CYToast.h>
+#import <BM4Group/BMToast.h>
 #import <BM4Group/HttpClient.h>
 #import <BM4Group/HttpClientConfig.h>
 #import <BM4Group/AccountHelper.h>

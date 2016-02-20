@@ -9,10 +9,22 @@
 #ifndef BM4GroupMacro_h
 #define BM4GroupMacro_h
 
+///---------
+/// Log
+///---------
 #if __has_include(<CocoaLumberjack/CocoaLumberjack.h>)
+
 #import <CocoaLumberjack/CocoaLumberjack.h>
+
+#ifdef DEBUG
+static const DDLogLevel ddLogLevel = DDLogLevelAll;
+#else
+static const DDLogLevel ddLogLevel = DDLogLevelInfo;
+#endif
+
 #define BMLog(frmt, ...) DDLogDebug(__VA_ARGS__)
 #define BMError(frmt, ...) DDLogError(__VA_ARGS__)
+
 #else
 
 #define XCODE_COLORS_ESCAPE @"\033["
@@ -22,6 +34,7 @@
 
 #define BMLog(frmt, ...) NSLog((XCODE_COLORS_ESCAPE @"fg31,81,255;" frmt XCODE_COLORS_RESET), ##__VA_ARGS__)
 #define BMError(frmt, ...) NSLog((XCODE_COLORS_ESCAPE @"fg255,0,0;" frmt XCODE_COLORS_RESET), ##__VA_ARGS__)
+
 #endif
 
 ///------

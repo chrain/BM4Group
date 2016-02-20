@@ -31,7 +31,11 @@
     [self makeText:text duration:2 offset:offset];
 }
 
+#if __has_include(<YYKit/YYKit.h>)
+static YYLabel *label = nil;
+#else
 static UILabel *label = nil;
+#endif
 
 +(void)makeText:(NSString *)text duration:(CFTimeInterval)duration offset:(CGFloat)offset
 {
@@ -40,7 +44,12 @@ static UILabel *label = nil;
     static CGFloat padding = 10.f;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+#if __has_include(<YYKit/YYKit.h>)
+        label = [[YYLabel alloc] init];
+        label.textContainerInset = UIEdgeInsetsMake(padding, padding * 2, padding, padding * 2);
+#else
         label = [[UILabel alloc] init];
+#endif
         label.numberOfLines = 0;
         label.userInteractionEnabled = NO;
         label.textAlignment = NSTextAlignmentCenter;
