@@ -8,7 +8,11 @@
 #import "HttpClient.h"
 #import "BM4GroupMacro.h"
 #import "NSString+Exist.h"
+#if __has_include(<SVProgressHUD/SVProgressHUD.h>)
+#import <SVProgressHUD/SVProgressHUD.h>
+#else
 #import "BMToast.h"
+#endif
 
 #if __has_include(<AFNetworking/AFNetworking.h>)
 
@@ -91,7 +95,11 @@ static NSInteger _successStatusCode = 0;
         if (handler) {
             handler(error);
         } else {
+#if __has_include(<SVProgressHUD/SVProgressHUD.h>)
+            [SVProgressHUD showErrorWithStatus:error.localizedDescription maskType:SVProgressHUDMaskTypeGradient];
+#else
             [BMToast makeText:error.localizedDescription];
+#endif
         }
     };
     
