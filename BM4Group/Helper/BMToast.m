@@ -55,7 +55,7 @@ static UILabel *label = nil;
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:14.f];
         label.textColor = [UIColor whiteColor];
-        label.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
+        label.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
 #if __has_include(<YYKit/YYKit.h>)
         label.textContainerInset = UIEdgeInsetsMake(padding, padding * 2, padding, padding * 2);
 #endif

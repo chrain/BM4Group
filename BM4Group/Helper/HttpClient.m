@@ -65,8 +65,8 @@ static NSInteger _successStatusCode = 0;
 {
     BMRequestMethod method = [request requestMethod];
     NSString *url = [self buildRequestUrl:request];
-    id param = [request params];
-    AFConstructingBlock constructingBlock = [request constrauctingBlock];
+    id param = [request requestParams];
+    AFConstructingBlock constructingBlock = [request requestConstructingBodyBlock];
     
     if (request.requestSerializerType == BMRequestSerializerTypeHTTP) {
         _manager.requestSerializer = [AFHTTPRequestSerializer serializer];
@@ -87,8 +87,6 @@ static NSInteger _successStatusCode = 0;
         }
     }
     
-    @weakify(self);
-    
     void (^handleErrorBlock)(NSError *error) = ^(NSError *error) {
         if (handler) {
             handler(error);
@@ -98,7 +96,6 @@ static NSInteger _successStatusCode = 0;
     };
     
     void (^handleSuccess)(NSURLSessionTask *task, id responseObject) = ^(NSURLSessionTask *task, id responseObject) {
-        @strongify(self);
         BMResponse *response = [self responseWithJson:responseObject];
         if (response.error) {
             handleErrorBlock(response.error);
@@ -108,7 +105,6 @@ static NSInteger _successStatusCode = 0;
     };
     
     void (^handleFailure)(NSURLSessionTask *task, NSError *error) = ^(NSURLSessionTask *task, NSError *error) {
-        @strongify(self);
         NSData *responseData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
         if (!responseData) {
             handleErrorBlock(error);
@@ -157,11 +153,11 @@ static NSInteger _successStatusCode = 0;
 
 #pragma mark - 私有方法
 - (NSString *)buildRequestUrl:(BMRequest *)request {
-    NSString *detailUrl = [request path];
+    NSString *detailUrl = [request requestPath];
     if ([detailUrl hasPrefix:@"http"]) {
         return detailUrl;
     }
-    return [_baseURL stringByAppendingPathComponent:request.path];
+    return [_baseURL stringByAppendingPathComponent:request.requestPath];
 }
 
 - (BMResponse *)responseWithJson:(id)responseObj {

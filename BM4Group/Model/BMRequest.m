@@ -19,7 +19,7 @@
     }
     
     BMRequest *request = [[BMRequest alloc] init];
-    request.path = path;
+    request.requestPath = path;
     return request;
 }
 
@@ -29,6 +29,17 @@
     BMRequest *request = [self requestWithPath:path];
     [request setValue:key forKeyPath:@"contentKey"];
     return request;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _requestMethod = BMRequestMethodPOST;
+        _requestSerializerType = BMRequestSerializerTypeHTTP;
+        _requestTimeoutInterval = 30.f;
+    }
+    return self;
 }
 
 @end
