@@ -20,7 +20,6 @@
 		3C0BC2FC1C73278C0091B542 /* AccountHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0BC2DD1C73278C0091B542 /* AccountHelper.m */; };
 		3C0BC2FD1C73278C0091B542 /* BMToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0BC2DF1C73278C0091B542 /* BMToast.m */; };
 		3C0BC2FE1C73278C0091B542 /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0BC2E11C73278C0091B542 /* HttpClient.m */; };
-		3C0BC2FF1C73278C0091B542 /* HttpClientConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0BC2E31C73278C0091B542 /* HttpClientConfig.m */; };
 		3C0BC3001C73278C0091B542 /* BMBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0BC2E61C73278C0091B542 /* BMBaseModel.m */; };
 		3C0BC3011C73278C0091B542 /* BMPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0BC2E81C73278C0091B542 /* BMPage.m */; };
 		3C0BC3021C73278C0091B542 /* BMRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0BC2EA1C73278C0091B542 /* BMRequest.m */; };
@@ -65,8 +64,6 @@
 		3C0BC2DF1C73278C0091B542 /* BMToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMToast.m; sourceTree = "<group>"; };
 		3C0BC2E01C73278C0091B542 /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
 		3C0BC2E11C73278C0091B542 /* HttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClient.m; sourceTree = "<group>"; };
-		3C0BC2E21C73278C0091B542 /* HttpClientConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClientConfig.h; sourceTree = "<group>"; };
-		3C0BC2E31C73278C0091B542 /* HttpClientConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClientConfig.m; sourceTree = "<group>"; };
 		3C0BC2E51C73278C0091B542 /* BMBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMBaseModel.h; sourceTree = "<group>"; };
 		3C0BC2E61C73278C0091B542 /* BMBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMBaseModel.m; sourceTree = "<group>"; };
 		3C0BC2E71C73278C0091B542 /* BMPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMPage.h; sourceTree = "<group>"; };
@@ -172,8 +169,6 @@
 				3C0BC2DF1C73278C0091B542 /* BMToast.m */,
 				3C0BC2E01C73278C0091B542 /* HttpClient.h */,
 				3C0BC2E11C73278C0091B542 /* HttpClient.m */,
-				3C0BC2E21C73278C0091B542 /* HttpClientConfig.h */,
-				3C0BC2E31C73278C0091B542 /* HttpClientConfig.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -316,7 +311,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C0BC2FF1C73278C0091B542 /* HttpClientConfig.m in Sources */,
 				3C0BC2F81C73278C0091B542 /* UIImage+Orientation.m in Sources */,
 				3C0BC2FC1C73278C0091B542 /* AccountHelper.m in Sources */,
 				3C0BC2FD1C73278C0091B542 /* BMToast.m in Sources */,

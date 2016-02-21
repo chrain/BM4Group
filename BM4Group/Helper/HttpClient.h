@@ -8,7 +8,6 @@
 
 #if __has_include(<AFNetworking/AFNetworking.h>)
 
-#import <Foundation/Foundation.h>
 #import "BMRequest.h"
 #import "BMResponse.h"
 #import "AFNetworking.h"
@@ -16,18 +15,39 @@
 FOUNDATION_EXTERN NSString *const kHttpClientErrorDomain;
 
 typedef void(^finishBlock)(BMResponse *response);
+typedef void(^failureHandler)(NSError *);
 
 @interface HttpClient : NSObject
 
 @property (nonatomic, strong, readonly) AFHTTPSessionManager *manager;
 
+/**
+ *  根URL，后拼接接口地址。
+ */
++ (void)setBaseURL:(NSString *)baseURL;
+
+/**
+ *  设置服务器返回数据正确码。
+ */
++ (void)setServerSuccessStatusCode:(NSInteger)successStatusCode;
+
 + (instancetype)sharedInstance;
 
-- (NSURLSessionTask *)get:(BMRequest *)request finish:(finishBlock)reponse;
+- (NSURLSessionTask *)startRequest:(BMRequest *)request finish:(finishBlock)finish failureHandler:(failureHandler)handler;
 
-- (NSURLSessionTask *)post:(BMRequest *)request finish:(finishBlock)reponse;
+/**
+ *  不要使用此方法创建对象。
+ *
+ *  @return nil
+ */
++ (instancetype)new DEPRECATED_ATTRIBUTE;
 
-- (NSURLSessionTask *)uploadWith:(BMRequest *)request finish:(finishBlock)reponse;
+/**
+ *  不要使用此方法创建对象。
+ *
+ *  @return nil
+ */
+- (instancetype)init DEPRECATED_ATTRIBUTE;
 
 @end
 
