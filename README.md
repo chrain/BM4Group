@@ -28,3 +28,11 @@ Installation
 ==============
 * `CTAssetsPickerController` 系统图片多选
 * `Masonry` 链式Coding写AutoLayout
+
+
+Xcode插件整理
+==============
+* [XcodeColors](https://github.com/robbiehanson/XcodeColors.git)
+* [HOStringSense-for-Xcode](https://github.com/holtwick/HOStringSense-for-Xcode.git)
+* [KZLinkedConsole](https://github.com/krzysztofzablocki/KZLinkedConsole.git)
+* [ColorSense-for-Xcode](https://github.com/omz/ColorSense-for-Xcode.git) 

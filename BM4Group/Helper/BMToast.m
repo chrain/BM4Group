@@ -46,7 +46,7 @@ static UILabel *label = nil;
     dispatch_once(&onceToken, ^{
 #if __has_include(<YYKit/YYKit.h>)
         label = [[YYLabel alloc] init];
-        label.textContainerInset = UIEdgeInsetsMake(padding, padding * 2, padding, padding * 2);
+        label.textContainerInset = UIEdgeInsetsMake(0.5 * padding, padding * 1.5, 0.5 * padding, padding * 1.5);
 #else
         label = [[UILabel alloc] init];
 #endif
@@ -56,17 +56,13 @@ static UILabel *label = nil;
         label.font = [UIFont systemFontOfSize:14.f];
         label.textColor = [UIColor whiteColor];
         label.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
-#if __has_include(<YYKit/YYKit.h>)
-        label.textContainerInset = UIEdgeInsetsMake(padding, padding * 2, padding, padding * 2);
-#endif
         label.layer.cornerRadius = 5.f;
         label.layer.masksToBounds = YES;
     });
     
-    label.width = [UIScreen mainScreen].bounds.size.width - padding * 4;
-    label.size = [text sizeForFont:label.font size:CGSizeMake(label.width - 4 * padding, HUGE) mode:NSLineBreakByWordWrapping];
-    label.width += padding * 3;
-    label.height += padding * 1.4;
+    label.size = [text sizeForFont:label.font size:CGSizeMake([UIScreen mainScreen].bounds.size.width - padding * 7, HUGE) mode:NSLineBreakByWordWrapping];
+    label.width += 3 * padding;
+    label.height += padding;
     
     UIView *superView = [UIApplication sharedApplication].keyWindow ?: [UIApplication sharedApplication].windows.lastObject;
     
