@@ -24,6 +24,13 @@ Installation
 3. Import \<BM4Group/BM4Group.h\>.
 
 
+Tips
+==============
+* 项目中Log采用`BRCocoaLumberjack`,为了使`BRCocoaLumberjack`输出的Log带颜色,请安装Xcode插件[XcodeColors](https://github.com/robbiehanson/XcodeColors.git),然后在项目最开始使用[BMUtils setupLog]初始化Log。
+* 由于没有打TAG，所以CocoaPods是以git的commit的唯一id来确认是哪一个版本的，所以`慎`使用`pod update`。
+
+
+
 项目常用第三方
 ==============
 * `CTAssetsPickerController` 系统图片多选

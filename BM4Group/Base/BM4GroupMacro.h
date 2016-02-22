@@ -16,14 +16,19 @@
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
 
-#ifdef DEBUG
+#if DEBUG
 static const DDLogLevel ddLogLevel = DDLogLevelAll;
 #else
 static const DDLogLevel ddLogLevel = DDLogLevelInfo;
 #endif
 
+#if DEBUG
 #define BMLog(...) DDLogDebug(__VA_ARGS__)
 #define BMError(...) DDLogError(__VA_ARGS__)
+#else
+#define BMLog(...)
+#define BMError(...)
+#endif
 
 #else
 
