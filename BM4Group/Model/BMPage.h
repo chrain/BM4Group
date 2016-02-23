@@ -17,12 +17,12 @@
 + (instancetype)defaultPage;
 
 #pragma mark - 传送给服务器的字段。
-@property (nonatomic, assign) NSUInteger page;  ///< 当前页码
-@property (nonatomic, assign) NSUInteger perPage;   ///< 每页数量
+@property (nonatomic, assign) NSUInteger page;    ///< 当前页码
+@property (nonatomic, assign) NSUInteger perPage; ///< 每页数量
 
 #pragma mark - 服务器端返回的数据，客户端仅做参考。
-@property (nonatomic, assign, readonly) NSUInteger totalPageCount;  ///< 服务器端根据perPage计算的总页数。
-@property (nonatomic, assign, readonly) NSUInteger totalCount;  ///< 服务器端的数据总条数。
+@property (nonatomic, assign, readonly) NSUInteger totalPageCount; ///< 服务器端根据perPage计算的总页数。
+@property (nonatomic, assign, readonly) NSUInteger totalCount;     ///< 服务器端的数据总条数。
 
 - (NSMutableDictionary *)nextPage;
 

@@ -18,12 +18,14 @@ static NSString *_serverPerPageKey = @"pageSize";
 static NSString *_serverTotalPageCountKey = @"pageCount";
 static NSString *_serverTotalCountKey = @"totalCount";
 
+
 @interface BMPage ()
 
 @property (nonatomic, assign, readwrite) NSUInteger totalPageCount;
 @property (nonatomic, assign, readwrite) NSUInteger totalCount;
 
 @end
+
 
 @implementation BMPage
 
@@ -57,10 +59,10 @@ static NSString *_serverTotalCountKey = @"totalCount";
 - (NSMutableDictionary *)nextPage
 {
     // _select代表不是第一次了
-    
+
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:2];
     params[_perPageKey] = @(_perPage);
-    
+
     if (_selected) {
         if (_page >= _totalCount) {
             return nil;

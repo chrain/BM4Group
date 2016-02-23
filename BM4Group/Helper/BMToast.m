@@ -41,7 +41,7 @@ static UILabel *label = nil;
 + (void)makeText:(NSString *)text duration:(CFTimeInterval)duration offset:(CGFloat)offset
 {
     if (![text isExist]) return;
-    
+
     static CGFloat padding = 10.f;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -60,19 +60,19 @@ static UILabel *label = nil;
         label.layer.cornerRadius = 5.f;
         label.layer.masksToBounds = YES;
     });
-    
+
     label.size = [text sizeForFont:label.font size:CGSizeMake([UIScreen mainScreen].bounds.size.width - padding * 7, HUGE) mode:NSLineBreakByWordWrapping];
     label.width += 3 * padding;
     label.height += padding;
-    
+
     UIView *superView = [UIApplication sharedApplication].keyWindow ?: [UIApplication sharedApplication].windows.lastObject;
-    
+
     label.centerX = superView.centerX;
     label.bottom = [UIScreen mainScreen].bounds.size.height - 60.f;
-    
+
     [superView addSubview:label];
     label.text = text;
-    
+
     if (label.superview) {
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideToast) object:nil];
     } else {

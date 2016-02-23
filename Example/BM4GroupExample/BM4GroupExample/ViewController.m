@@ -56,8 +56,7 @@
         default: {
             BMPage *page = [BMPage defaultPage];
             BMError(@"%@", page);
-        }
-            break;
+        } break;
     }
 }
 

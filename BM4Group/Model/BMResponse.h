@@ -10,7 +10,7 @@
 #import "BMPage.h"
 
 
-@interface BMResponse <T: BMBaseModel *> : BMBaseModel
+@interface BMResponse < T : BMBaseModel * > : BMBaseModel
 
 /**
  *  0为成功；其他均为失败
