@@ -9,18 +9,20 @@
 #import <UIKit/UIKit.h>
 
 IB_DESIGNABLE
+
+
 @interface BMUnderLineView : UIView
 
 /**
  *  默认为1px
  */
-@property(nonatomic, assign) IBInspectable CGFloat lineHeight;
+@property (nonatomic, assign) IBInspectable CGFloat lineHeight;
 
 /**
  *  默认为UIEdgeInsetZero
  */
-@property(nonatomic, assign) UIEdgeInsets lineInserts;
+@property (nonatomic, assign) UIEdgeInsets lineInserts;
 
-@property(nonatomic, strong) IBInspectable UIColor *lineColor;
+@property (nonatomic, strong) IBInspectable UIColor *lineColor;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "NSString+Exist.h"
 
+
 @implementation NSString (Exist)
 
 - (BOOL)isExist

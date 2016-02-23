@@ -13,7 +13,7 @@
  *  1:第一种直接存在Document/store下。
  *  2:第二种直接存在Document/store/(当前登录用户name)下。
  */
-@interface StoreUtility<T> : NSObject
+@interface StoreUtility <T> : NSObject
 
 #pragma mark - 存储相关
 + (BOOL)storeToRootDirectory:(T)data key:(NSString *)key;

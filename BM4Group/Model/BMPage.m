@@ -8,32 +8,69 @@
 
 #import "BMPage.h"
 
+static NSUInteger _firstPage = 1;
+
+static NSString *_pageKey = @"pageNo";
+static NSString *_perPageKey = @"pageSize";
+
+static NSString *_serverPageKey = @"pageNum";
+static NSString *_serverPerPageKey = @"pageSize";
+static NSString *_serverTotalPageCountKey = @"pageCount";
+static NSString *_serverTotalCountKey = @"totalCount";
+
+@interface BMPage ()
+
+@property (nonatomic, assign, readwrite) NSUInteger totalPageCount;
+@property (nonatomic, assign, readwrite) NSUInteger totalCount;
+
+@end
+
 @implementation BMPage
+
++ (void)setFirstPage:(NSUInteger)page
+{
+    _firstPage = page;
+}
+
++ (void)setPageKey:(NSString *)pageKey perPageKey:(NSString *)perPageKey
+{
+    _pageKey = pageKey;
+    _perPageKey = perPageKey;
+}
+
++ (void)setServerPageKey:(NSString *)serverPageKey serverPerPageKey:(NSString *)serverPerPageKey serverTotalPageCountKey:(NSString *)serverTotalPageCountKey serverTotalCountKey:(NSString *)serverTotalCountKey
+{
+    _serverPageKey = serverPageKey;
+    _serverPerPageKey = serverPerPageKey;
+    _serverTotalPageCountKey = serverTotalPageCountKey;
+    _serverTotalCountKey = serverTotalCountKey;
+}
 
 + (instancetype)defaultPage
 {
-    BMPage *page = [[self alloc] init];
-    page.pageNo = 0;
-    page.pageCount = page.pageNo + 1;
+    BMPage *page = [self new];
+    page.page = _firstPage;
+    page.perPage = 20;
     return page;
-}
-
-- (instancetype)init
-{
-    if (self = [super init]) {
-        _pageSize = 20;
-    }
-    return self;
 }
 
 - (NSMutableDictionary *)nextPage
 {
-    if (_pageNo >= _pageCount) {
-        return nil;
-    }
+    // _select代表不是第一次了
+    
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:2];
-    params[@"pageNo"] = @(_pageNo + 1);
-    params[@"pageSize"] = @(_pageSize);
+    params[_perPageKey] = @(_perPage);
+    
+    if (_selected) {
+        if (_page >= _totalCount) {
+            return nil;
+        } else {
+            params[_pageKey] = @(_page + 1);
+        }
+    } else {
+        _selected = YES;
+        params[_pageKey] = @(_page);
+    }
     return params;
 }
 

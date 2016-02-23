@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface UIViewController (Alert)
 
 /**
@@ -15,7 +16,7 @@
  *
  *  @param message message
  */
-- (void)showAlertWithMessage:(NSString *)message ;
+- (void)showAlertWithMessage:(NSString *)message;
 
 /**
  *  快快速弹出一个显示alert的消息，确定按钮可以传入对应操作。

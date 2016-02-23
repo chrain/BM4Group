@@ -14,6 +14,7 @@
 #import <YYKit/YYKit.h>
 #endif
 
+
 @implementation BMToast
 
 + (void)makeText:(NSString *)text
@@ -37,7 +38,7 @@ static YYLabel *label = nil;
 static UILabel *label = nil;
 #endif
 
-+(void)makeText:(NSString *)text duration:(CFTimeInterval)duration offset:(CGFloat)offset
++ (void)makeText:(NSString *)text duration:(CFTimeInterval)duration offset:(CGFloat)offset
 {
     if (![text isExist]) return;
     
@@ -74,8 +75,7 @@ static UILabel *label = nil;
     
     if (label.superview) {
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideToast) object:nil];
-    }
-    else {
+    } else {
         [UIView animateWithDuration:0.2 animations:^{
             label.alpha = 1.f;
         }];

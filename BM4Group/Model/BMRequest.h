@@ -10,7 +10,7 @@
 
 @protocol AFMultipartFormData;
 
-typedef void(^AFConstructingBlock)(id<AFMultipartFormData> formData);
+typedef void (^AFConstructingBlock)(id<AFMultipartFormData> formData);
 
 typedef NS_ENUM(NSUInteger, BMRequestMethod) {
     BMRequestMethodGET,
@@ -21,6 +21,7 @@ typedef NS_ENUM(NSUInteger, BMRequestSerializerType) {
     BMRequestSerializerTypeHTTP,
     BMRequestSerializerTypeJSON,
 };
+
 
 @interface BMRequest : BMBaseModel
 
@@ -62,13 +63,13 @@ typedef NS_ENUM(NSUInteger, BMRequestSerializerType) {
 /**
  *  是否忽略缓存,直接请求新数据。
  */
-@property(nonatomic, assign) BOOL ignoreCache;
+@property (nonatomic, assign) BOOL ignoreCache;
 
 /**
  *  服务器返回内容包装key
  *  @see requestWithPath: contentKey:
  */
-@property(nonatomic, copy, readonly) NSString *contentKey;
+@property (nonatomic, copy, readonly) NSString *contentKey;
 
 /**
  *  服务器返回的结果直接在result里

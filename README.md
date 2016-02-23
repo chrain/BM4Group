@@ -1,4 +1,4 @@
-BM4Group <a href="#中文介绍">中文介绍</a>
+BM4Group
 ==============
 
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/ibireme/YYKit/master/LICENSE)&nbsp;
@@ -19,9 +19,9 @@ Installation
 
 ### CocoaPods
 
-1. Add `pod 'BM4Group', :git => 'https://github.com/chrain/BM4Group.git'`
-2. Run `pod install` or `pod update`.
-3. Import \<BM4Group/BM4Group.h\>.
+1. Add `pod 'BM4Group', :git => 'https://github.com/chrain/BM4Group.git'` to Podfile
+2. Run `pod install`.
+3. Add `#import <BM4Group/BM4Group.h>` when use.
 
 
 Tips
@@ -39,7 +39,13 @@ Tips
 
 Xcode插件整理
 ==============
+* [ATProperty](https://github.com/Draveness/ATProperty.git)
+* [FuzzyAutocomplete](https://github.com/FuzzyAutocomplete/FuzzyAutocompletePlugin.git)
+* [Peckham](https://github.com/markohlebar/Peckham.git)
+* [BackLight](https://github.com/limejelly/Backlight-for-XCode.git)
+* [DXXcodeConsoleUnicodePlugin](https://github.com/dhcdht/DXXcodeConsoleUnicodePlugin.git)
 * [XcodeColors](https://github.com/robbiehanson/XcodeColors.git)
-* [HOStringSense-for-Xcode](https://github.com/holtwick/HOStringSense-for-Xcode.git)
+* [HOStringSense](https://github.com/holtwick/HOStringSense-for-Xcode.git)
 * [KZLinkedConsole](https://github.com/krzysztofzablocki/KZLinkedConsole.git)
 * [ColorSense-for-Xcode](https://github.com/omz/ColorSense-for-Xcode.git) 
+* [DerivedData Extemmintor](https://github.com/kattrali/deriveddata-exterminator.git)

@@ -8,6 +8,7 @@
 
 #import "UIViewController+Alert.h"
 
+
 @implementation UIViewController (Alert)
 
 - (void)showAlertWithMessage:(NSString *)message
@@ -21,7 +22,7 @@
 {
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
     [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"取消", @"取消") style:UIAlertActionStyleCancel handler:nil]];
-    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"确定", @"确定") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"确定", @"确定") style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
         okHandler();
     }]];
     [self presentViewController:alertVC animated:YES completion:nil];

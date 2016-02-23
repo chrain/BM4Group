@@ -9,35 +9,40 @@
 #import "ViewController.h"
 #import "BM4Group.h"
 
+
 @interface ViewController ()
 @property (nonatomic, strong) BMSpinnerView *spinnerView;
 @end
 
+
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.spinnerView = [BMSpinnerView new];
     self.spinnerView.datas = [@"周日 周一 周二 周三 周四 周五 周六" componentsSeparatedByString:@" "];
-    
+
     NSString *name = nil;
     NSParameterAssert(![name isExist]);
     name = (id)kCFNull; //如果NSString为NSNull依旧返回NO
     NSParameterAssert(![name isExist]);
     name = @"       ";
     NSParameterAssert(![name isExist]);
-    
-//    NSLog(@"这是个测试");
+
+    //    NSLog(@"这是个测试");
     BMLog(@"fdsdf");
     BMError(@"dsfsf");
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)buttonAction:(id)sender {
+- (IBAction)buttonAction:(id)sender
+{
     switch ([sender tag]) {
         case 0:
             [BMToast makeText:@"这是一个Toast\n这是一个Toast"];
@@ -48,7 +53,10 @@
         case 2:
             [self.spinnerView showBelowWith:sender];
             break;
-        default:
+        default: {
+            BMPage *page = [BMPage defaultPage];
+            BMError(@"%@", page);
+        }
             break;
     }
 }

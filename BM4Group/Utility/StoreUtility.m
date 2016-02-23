@@ -11,20 +11,24 @@
 #import "AccountHelper.h"
 #import "BM4GroupMacro.h"
 
+
 @implementation StoreUtility
 
-+ (BOOL)storeToUserDirectory:(id)data key:(NSString *)key {
++ (BOOL)storeToUserDirectory:(id)data key:(NSString *)key
+{
     NSParameterAssert(data && [data conformsToProtocol:@protocol(NSCoding)]);
     NSParameterAssert([key isExist]);
-    
+
     return [NSKeyedArchiver archiveRootObject:data toFile:[self userPathByKey:key]];
 }
 
-+ (id)fetchByUserDirectory:(NSString *)key {
++ (id)fetchByUserDirectory:(NSString *)key
+{
     return [NSKeyedUnarchiver unarchiveObjectWithFile:[self userPathByKey:key]];
 }
 
-+ (BOOL)deleteUserPathByKey:(NSString *)key {
++ (BOOL)deleteUserPathByKey:(NSString *)key
+{
     NSFileManager *fm = [NSFileManager defaultManager];
     if ([fm fileExistsAtPath:[self userPathByKey:key]]) {
         return [fm removeItemAtPath:[self rootPathByKey:key] error:nil];
@@ -33,18 +37,21 @@
     }
 }
 
-+ (BOOL)storeToRootDirectory:(id)data key:(NSString *)key {
++ (BOOL)storeToRootDirectory:(id)data key:(NSString *)key
+{
     NSParameterAssert(data && [data conformsToProtocol:@protocol(NSCoding)]);
     NSParameterAssert([key isExist]);
-    
+
     return [NSKeyedArchiver archiveRootObject:data toFile:[self rootPathByKey:key]];
 }
 
-+ (id)fetchByRootDirectory:(NSString *)key {
++ (id)fetchByRootDirectory:(NSString *)key
+{
     return [NSKeyedUnarchiver unarchiveObjectWithFile:[self rootPathByKey:key]];
 }
 
-+ (BOOL)deleteRootPatByKey:(NSString *)key {
++ (BOOL)deleteRootPatByKey:(NSString *)key
+{
     NSFileManager *fm = [NSFileManager defaultManager];
     if ([fm fileExistsAtPath:[self rootPathByKey:key]]) {
         return [fm removeItemAtPath:[self rootPathByKey:key] error:nil];
@@ -55,17 +62,20 @@
 
 #pragma mark - Private Method
 
-+ (NSString *)userPathByKey:(NSString *)key {
++ (NSString *)userPathByKey:(NSString *)key
+{
     return [[self storeUserDirectory] stringByAppendingPathComponent:key];
 }
 
-+ (NSString *)rootPathByKey:(NSString *)key {
++ (NSString *)rootPathByKey:(NSString *)key
+{
     return [[self storeRootDirectory] stringByAppendingPathComponent:key];
 }
 
-+ (NSString *)storeUserDirectory {
++ (NSString *)storeUserDirectory
+{
     NSString *path = [NSString stringWithFormat:@"%@/store/%@", kDOCUMENT_DIRECTORY, [AccountHelper sharedInstance].user.name];
-    
+
     BOOL isDirectory;
     BOOL isExist = [[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDirectory];
     if (!isExist || !isDirectory) {
@@ -80,9 +90,10 @@
     return path;
 }
 
-+ (NSString *)storeRootDirectory {
++ (NSString *)storeRootDirectory
+{
     NSString *path = [NSString stringWithFormat:@"%@/store", kDOCUMENT_DIRECTORY];
-    
+
     BOOL isDirectory;
     BOOL isExist = [[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDirectory];
     if (!isExist || !isDirectory) {
@@ -98,15 +109,16 @@
 }
 
 /// 让此目录不被iCloud备份
-+ (BOOL)addSkipBackupAttributeToItemAtPath:(NSString *)filePathString {
++ (BOOL)addSkipBackupAttributeToItemAtPath:(NSString *)filePathString
+{
     NSURL *URL = [NSURL fileURLWithPath:filePathString];
-    
+
     assert([[NSFileManager defaultManager] fileExistsAtPath:URL.path]);
-    
+
     NSError *error = nil;
     BOOL success = [URL setResourceValue:@(YES) forKey:NSURLIsExcludedFromBackupKey error:&error];
     if (error) BMError(@"%@", error);
-    
+
     return success;
 }
 

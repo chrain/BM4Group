@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface BMSpinnerView : UITableView <UITableViewDataSource, UITableViewDelegate>
 
 /**
  *  数据模型，BMBaseModel或者NSString
  */
-@property(nonatomic, strong) NSArray *datas;
+@property (nonatomic, strong) NSArray *datas;
 
 /**
  *  默认选中的序号
@@ -23,7 +24,7 @@
 /**
  *  点击dim是否消失
  */
-@property(nonatomic, assign) BOOL touchOutsideHide;
+@property (nonatomic, assign) BOOL touchOutsideHide;
 
 /**
  *  点击时的回掉

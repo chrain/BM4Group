@@ -8,6 +8,7 @@
 
 #import "BMEnableIQKeyboardView.h"
 
+
 @implementation BMEnableIQKeyboardView
 
 @end

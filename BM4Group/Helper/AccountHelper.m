@@ -13,11 +13,13 @@ NSString *const kCurrentUserKey = @"kCurrentUserKey";
 
 static AccountHelper *_accountHelper = nil;
 
+
 @interface AccountHelper ()
 
 @property (nonatomic, strong, readwrite) id user;
 
 @end
+
 
 @implementation AccountHelper
 
@@ -30,7 +32,7 @@ static AccountHelper *_accountHelper = nil;
     return _accountHelper;
 }
 
-+ (instancetype)new
++ (instancetype) new
 {
     return nil;
 }
@@ -43,11 +45,13 @@ static AccountHelper *_accountHelper = nil;
     return self;
 }
 
-- (BOOL)isLogin {
+- (BOOL)isLogin
+{
     return _user != nil;
 }
 
-- (BOOL)logout {
+- (BOOL)logout
+{
     return [StoreUtility deleteRootPatByKey:kCurrentUserKey];
 }
 

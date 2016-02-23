@@ -14,8 +14,9 @@
 
 FOUNDATION_EXTERN NSString *const kHttpClientErrorDomain;
 
-typedef void(^finishBlock)(BMResponse *response);
-typedef void(^failureHandler)(NSError *);
+typedef void (^finishBlock)(BMResponse *response);
+typedef void (^failureHandler)(NSError *error);
+
 
 @interface HttpClient : NSObject
 
@@ -40,7 +41,7 @@ typedef void(^failureHandler)(NSError *);
  *
  *  @return nil
  */
-+ (instancetype)new DEPRECATED_ATTRIBUTE;
++ (instancetype) new DEPRECATED_ATTRIBUTE;
 
 /**
  *  不要使用此方法创建对象。

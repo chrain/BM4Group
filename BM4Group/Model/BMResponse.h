@@ -9,7 +9,8 @@
 #import "BMBaseModel.h"
 #import "BMPage.h"
 
-@interface BMResponse<T> : BMBaseModel
+
+@interface BMResponse <T: BMBaseModel *> : BMBaseModel
 
 /**
  *  0为成功；其他均为失败
@@ -19,29 +20,29 @@
 /**
  *  提示信息
  */
-@property(nonatomic, copy) NSString *msg;
+@property (nonatomic, copy) NSString *msg;
 
 /**
  *  单个实体或实体的集合(可选)
  */
-@property(nonatomic, strong) T result;
+@property (nonatomic, strong) T result;
 
-@property(nonatomic, strong) BMPage *page;
+@property (nonatomic, strong) BMPage *page;
 /**
  *  result的原始json类型
  */
-@property(nonatomic, strong) id rawResult;
+@property (nonatomic, strong) id rawResult;
 
 /**
  *  服务器的result是否是个空的.
  */
-@property(nonatomic, assign, getter=isEmptyResult) BOOL emptyResult;
+@property (nonatomic, assign, getter=isEmptyResult) BOOL emptyResult;
 
 /**
  *  数据是否来自缓存
  */
-@property(nonatomic, assign) BOOL fromCache;
+@property (nonatomic, assign) BOOL fromCache;
 
-@property(nonatomic, strong) NSError *error;
+@property (nonatomic, strong) NSError *error;
 
 @end

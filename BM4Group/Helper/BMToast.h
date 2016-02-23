@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface BMToast : NSObject
 
 + (void)makeText:(NSString *)text;

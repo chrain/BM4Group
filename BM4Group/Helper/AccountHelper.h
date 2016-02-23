@@ -12,7 +12,8 @@
 
 FOUNDATION_EXTERN NSString *const kCurrentUserKey;
 
-@interface AccountHelper<T: BMBaseModel *> : NSObject
+
+@interface AccountHelper < T : BMBaseModel * > : NSObject
 
 /**
  *  用户是否登录
@@ -22,12 +23,12 @@ FOUNDATION_EXTERN NSString *const kCurrentUserKey;
 /**
  *  当前登录的用户，必须实现NSCoding协议。
  */
-@property(nonatomic, strong, readonly) T user;
+@property (nonatomic, strong, readonly) T user;
 
 /**
  *  手机定位位置。
  */
-@property(nonatomic, strong, readonly) CLLocation *location;
+@property (nonatomic, strong, readonly) CLLocation *location;
 
 /**
  *  请使用次方法获取实例，并网络请求前设置好相关配置。
@@ -41,7 +42,7 @@ FOUNDATION_EXTERN NSString *const kCurrentUserKey;
  *
  *  @return nil
  */
-+ (instancetype)new DEPRECATED_ATTRIBUTE;
++ (instancetype) new DEPRECATED_ATTRIBUTE;
 
 /**
  *  不要使用此方法创建对象。

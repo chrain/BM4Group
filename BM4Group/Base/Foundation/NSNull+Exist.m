@@ -8,6 +8,7 @@
 
 #import "NSNull+Exist.h"
 
+
 @implementation NSNull (Exist)
 
 - (BOOL)isExist

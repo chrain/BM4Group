@@ -22,11 +22,13 @@ static HttpClient *_httpClient = nil;
 static NSString *_baseURL = nil;
 static NSInteger _successStatusCode = 0;
 
+
 @interface HttpClient ()
 
 @property (nonatomic, strong, readwrite) AFHTTPSessionManager *manager;
 
 @end
+
 
 @implementation HttpClient
 
@@ -40,7 +42,8 @@ static NSInteger _successStatusCode = 0;
     _successStatusCode = successStatusCode;
 }
 
-+ (instancetype)sharedInstance {
++ (instancetype)sharedInstance
+{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
 #pragma clang diagnostic push
@@ -51,15 +54,16 @@ static NSInteger _successStatusCode = 0;
     return _httpClient;
 }
 
-+ (instancetype)new
++ (instancetype) new
 {
     return nil;
 }
 
-- (instancetype)init {
+- (instancetype)init
+{
     self = [super init];
     if (self) {
-        _manager= [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:_baseURL]];
+        _manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:_baseURL]];
         _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
     }
     return self;
@@ -132,23 +136,23 @@ static NSInteger _successStatusCode = 0;
     
     switch (method) {
         case BMRequestMethodGET: {
-            return [_manager GET:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            return [_manager GET:url parameters:param progress:nil success:^(NSURLSessionDataTask *_Nonnull task, id _Nullable responseObject) {
                 handleSuccess(task, responseObject);
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            } failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
                 handleFailure(task, error);
             }];
         }
         case BMRequestMethodPOST: {
             if (constructingBlock) {
-                return [_manager POST:url parameters:param constructingBodyWithBlock:constructingBlock progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                return [_manager POST:url parameters:param constructingBodyWithBlock:constructingBlock progress:nil success:^(NSURLSessionDataTask *_Nonnull task, id _Nullable responseObject) {
                     handleSuccess(task, responseObject);
-                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                } failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
                     handleFailure(task, error);
                 }];
             } else {
-                return [_manager POST:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                return [_manager POST:url parameters:param progress:nil success:^(NSURLSessionDataTask *_Nonnull task, id _Nullable responseObject) {
                     handleSuccess(task, responseObject);
-                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                } failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
                     handleFailure(task, error);
                 }];
             }
@@ -160,7 +164,8 @@ static NSInteger _successStatusCode = 0;
 }
 
 #pragma mark - 私有方法
-- (NSString *)buildRequestUrl:(BMRequest *)request {
+- (NSString *)buildRequestUrl:(BMRequest *)request
+{
     NSString *detailUrl = [request requestPath];
     if ([detailUrl hasPrefix:@"http"]) {
         return detailUrl;
@@ -168,11 +173,12 @@ static NSInteger _successStatusCode = 0;
     return [_baseURL stringByAppendingPathComponent:request.requestPath];
 }
 
-- (BMResponse *)responseWithJson:(id)responseObj {
+- (BMResponse *)responseWithJson:(id)responseObj
+{
     BMResponse *response = [BMResponse mj_objectWithKeyValues:responseObj];
     
     if (response.status != _successStatusCode) {
-        NSError *error = [NSError errorWithDomain:kHttpClientErrorDomain code:response.status userInfo:@{NSLocalizedDescriptionKey : [response.msg isExist] ? response.msg : @"出现未知错误了，请重试。"}];
+        NSError *error = [NSError errorWithDomain:kHttpClientErrorDomain code:response.status userInfo:@{ NSLocalizedDescriptionKey : [response.msg isExist] ? response.msg : @"出现未知错误了，请重试。" }];
         response.error = error;
         return response;
     }

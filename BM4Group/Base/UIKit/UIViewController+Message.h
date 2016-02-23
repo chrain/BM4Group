@@ -13,6 +13,7 @@ typedef NS_ENUM(NSUInteger, HintType) {
     HintTypeFailure,
 };
 
+
 @interface UIViewController (Message)
 
 /**
@@ -48,4 +49,3 @@ typedef NS_ENUM(NSUInteger, HintType) {
 - (void)showMessage:(NSString *)message type:(HintType)type offset:(CGFloat)offset;
 
 @end
-

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface BMUtils : NSObject
 
 /**
@@ -41,7 +42,7 @@
 + (BOOL)isValidateCarNo:(NSString *)carNo;
 
 ///获得某个NSDate的星期几
-+ (NSString *)weekdayStringFromDate:(NSDate*)inputDate;
++ (NSString *)weekdayStringFromDate:(NSDate *)inputDate;
 
 ///获得某个NSDate的农历表示法
 + (NSString *)getChineseCalendarWithDate:(NSDate *)date;

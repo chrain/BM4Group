@@ -8,10 +8,12 @@
 
 #import "BMResponse.h"
 
+
 @implementation BMResponse
 
-+ (NSArray *)ignoredPropertyNames {
-    return @[@"result", @"rawResult"];
++ (NSArray *)ignoredPropertyNames
+{
+    return @[ @"result", @"rawResult" ];
 }
 
 - (instancetype)init

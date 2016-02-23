@@ -8,18 +8,20 @@
 
 #import "BMDashLine.h"
 
+
 @implementation BMDashLine
 
-- (void)drawRect:(CGRect)rect {
+- (void)drawRect:(CGRect)rect
+{
     [super drawRect:rect];
     CGContextRef context = UIGraphicsGetCurrentContext();
     [self.dashColor setStroke];
     CGFloat lengths[] = {4, 4};
     CGContextSetLineDash(context, 0, lengths, 2);
     CGContextMoveToPoint(context, 0, 0);
-    
+
     BOOL horizontal = rect.size.width > rect.size.height;
-    
+
     if (horizontal) {
         CGContextSetLineWidth(context, rect.size.height);
         CGContextAddLineToPoint(context, rect.size.width, 0);
@@ -30,7 +32,8 @@
     CGContextStrokePath(context);
 }
 
-- (void)setDashColor:(UIColor *)dashColor {
+- (void)setDashColor:(UIColor *)dashColor
+{
     _dashColor = dashColor;
     [self setNeedsDisplay];
 }
