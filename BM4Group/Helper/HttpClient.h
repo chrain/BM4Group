@@ -52,4 +52,18 @@ typedef void (^failureHandler)(NSError *error);
 
 @end
 
+@protocol HttpClientHook <NSObject>
+
+- (void)doBefore:(BMRequest *)requset;
+
+- (void)doAfterEnd:(BMResponse *)response error:(NSError *)error;
+
+@end
+
+@interface HttpClient (Hook)
+
+- (void)addHook:(id<HttpClientHook>)hook;
+
+@end
+
 #endif

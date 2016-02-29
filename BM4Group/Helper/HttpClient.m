@@ -69,21 +69,31 @@ static NSInteger _successStatusCode = 0;
     return self;
 }
 
+- (NSMutableArray *)hooks
+{
+    static NSMutableArray *hooks;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        hooks = [NSMutableArray array];
+    });
+    return hooks;
+}
+
 - (NSURLSessionTask *)startRequest:(BMRequest *)request finish:(finishBlock)finish failureHandler:(failureHandler)handler
 {
     BMRequestMethod method = [request requestMethod];
     NSString *url = [self buildRequestUrl:request];
     id param = [request requestParams];
     AFConstructingBlock constructingBlock = [request requestConstructingBodyBlock];
-
+    
     if (request.requestSerializerType == BMRequestSerializerTypeHTTP) {
         _manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     } else if (request.requestSerializerType == BMRequestSerializerTypeJSON) {
         _manager.requestSerializer = [AFJSONRequestSerializer serializer];
     }
-
+    
     _manager.requestSerializer.timeoutInterval = [request requestTimeoutInterval];
-
+    
     // if api need add custom value to HTTPHeaderField
     NSDictionary *headerFieldValueDictionary = [request requestHeaderFields];
     for (id httpHeaderField in headerFieldValueDictionary.allKeys) {
@@ -94,7 +104,7 @@ static NSInteger _successStatusCode = 0;
             BMError(@"Error, class of key/value in headerFieldValueDictionary should be NSString.");
         }
     }
-
+    
     void (^handleErrorBlock)(NSError *error) = ^(NSError *error) {
         if (handler) {
             handler(error);
@@ -106,17 +116,23 @@ static NSInteger _successStatusCode = 0;
 #endif
         }
     };
-
+    
     void (^handleSuccess)(NSURLSessionTask *task, id responseObject) = ^(NSURLSessionTask *task, id responseObject) {
         BMResponse *response = [self responseWithJson:responseObject];
+        for (id<HttpClientHook> hook in self.hooks) {
+            [hook doAfterEnd:response error:nil];
+        }
         if (response.error) {
             handleErrorBlock(response.error);
         } else {
             finish(response);
         }
     };
-
+    
     void (^handleFailure)(NSURLSessionTask *task, NSError *error) = ^(NSURLSessionTask *task, NSError *error) {
+        for (id<HttpClientHook> hook in self.hooks) {
+            [hook doAfterEnd:nil error:error];
+        }
         NSData *responseData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
         if (!responseData) {
             handleErrorBlock(error);
@@ -133,7 +149,11 @@ static NSInteger _successStatusCode = 0;
             }
         }
     };
-
+    
+    for (id<HttpClientHook> hook in self.hooks) {
+        [hook doBefore:request];
+    }
+    
     switch (method) {
         case BMRequestMethodGET: {
             return [_manager GET:url parameters:param progress:nil success:^(NSURLSessionDataTask *_Nonnull task, id _Nullable responseObject) {
@@ -158,6 +178,9 @@ static NSInteger _successStatusCode = 0;
             }
         }
         default:
+            for (id<HttpClientHook> hook in self.hooks) {
+                [hook doAfterEnd:nil error:[NSError errorWithDomain:kHttpClientErrorDomain code:-1 userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Error, unsupport method type", nil)}]];
+            }
             BMError(@"Error, unsupport method type");
             return nil;
     }
@@ -176,15 +199,15 @@ static NSInteger _successStatusCode = 0;
 - (BMResponse *)responseWithJson:(id)responseObj
 {
     BMResponse *response = [BMResponse mj_objectWithKeyValues:responseObj];
-
+    
     if (response.status != _successStatusCode) {
         NSError *error = [NSError errorWithDomain:kHttpClientErrorDomain code:response.status userInfo:@{ NSLocalizedDescriptionKey : [response.msg isExist] ? response.msg : @"出现未知错误了，请重试。" }];
         response.error = error;
         return response;
     }
-
+    
     id result = responseObj[@"data"];
-
+    
     if (result && ![result isKindOfClass:[NSNull class]] && [result isKindOfClass:[NSDictionary class]]) {
         NSDictionary *pageDict = result[@"page"];
         if (pageDict) {
@@ -195,8 +218,17 @@ static NSInteger _successStatusCode = 0;
     } else {
         response.emptyResult = YES;
     }
-
+    
     return response;
+}
+
+@end
+
+@implementation HttpClient (Hook)
+
+- (void)addHook:(id<HttpClientHook>)hook
+{
+    [[self hooks] addObject:hook];
 }
 
 @end
