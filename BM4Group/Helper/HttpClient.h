@@ -60,6 +60,7 @@ typedef void (^failureHandler)(NSError *error);
 
 @end
 
+
 @interface HttpClient (Hook)
 
 - (void)addHook:(id<HttpClientHook>)hook;

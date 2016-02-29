@@ -52,7 +52,9 @@ static AccountHelper *_accountHelper = nil;
 
 - (BOOL)logout
 {
-    return [StoreUtility deleteRootPatByKey:kCurrentUserKey];
+    BOOL result = [StoreUtility deleteRootPatByKey:kCurrentUserKey];
+    if (result) _user = nil;
+    return result;
 }
 
 @end
