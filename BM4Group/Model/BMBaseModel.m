@@ -95,7 +95,7 @@ return parser(string);
 @implementation BMBaseModel
 
 #if __has_include(<MJExtension/MJExtension.h>)
-+ (NSDictionary *)replacedKeyFromPropertyName
++ (NSDictionary *)mj_replacedKeyFromPropertyName
 {
     return @{ @"objectID" : @"id" };
 }

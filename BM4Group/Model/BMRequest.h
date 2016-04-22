@@ -90,4 +90,9 @@ typedef NS_ENUM(NSUInteger, BMRequestSerializerType) {
  */
 + (instancetype)requestWithPath:(NSString *)path contentKey:(NSString *)key;
 
+/// 添加当前接口过滤的Hook
+- (void)addIgonreHookClass:(Class)clazz;
+
+- (BOOL)shouldIgnoreHookClass:(Class)clazz;
+
 @end

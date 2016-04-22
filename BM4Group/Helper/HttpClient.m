@@ -112,6 +112,7 @@ static NSInteger _successStatusCode = 0;
     void (^handleSuccess)(NSURLSessionTask *task, id responseObject) = ^(NSURLSessionTask *task, id responseObject) {
         BMResponse *response = [self responseWithJson:responseObject];
         for (id<HttpClientHook> hook in self.hooks) {
+            if ([request shouldIgnoreHookClass:hook.class]) continue;
             [hook doAfterEnd:response error:nil];
         }
         if (response.error) {
@@ -123,6 +124,7 @@ static NSInteger _successStatusCode = 0;
 
     void (^handleFailure)(NSURLSessionTask *task, NSError *error) = ^(NSURLSessionTask *task, NSError *error) {
         for (id<HttpClientHook> hook in self.hooks) {
+            if ([request shouldIgnoreHookClass:hook.class]) continue;
             [hook doAfterEnd:nil error:error];
         }
         NSData *responseData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
@@ -143,6 +145,7 @@ static NSInteger _successStatusCode = 0;
     };
 
     for (id<HttpClientHook> hook in self.hooks) {
+        if ([request shouldIgnoreHookClass:hook.class]) continue;
         [hook doBefore:request];
     }
 
@@ -171,6 +174,7 @@ static NSInteger _successStatusCode = 0;
         }
         default:
             for (id<HttpClientHook> hook in self.hooks) {
+                if ([request shouldIgnoreHookClass:hook.class]) continue;
                 [hook doAfterEnd:nil error:[NSError errorWithDomain:kHttpClientErrorDomain code:-1 userInfo:@{ NSLocalizedDescriptionKey : NSLocalizedString(@"Error, unsupport method type", nil) }]];
             }
             BMError(@"Error, unsupport method type");

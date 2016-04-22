@@ -56,13 +56,25 @@ static NSString *_serverTotalCountKey = @"totalCount";
     return page;
 }
 
+#if __has_include(<MJExtension/MJExtension.h>)
++ (NSDictionary *)mj_replacedKeyFromPropertyName
+{
+    return @{ @"page" : _pageKey, @"perPage" : _perPageKey, @"totalPageCount" : _serverTotalPageCountKey, @"totalCount" : _serverTotalCountKey };
+}
+
+- (void)mj_keyValuesDidFinishConvertingToObject
+{
+    _selected = YES;
+}
+#endif
+
 - (NSMutableDictionary *)nextPage
 {
     // _select代表不是第一次了
-
+    
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:2];
     params[_perPageKey] = @(_perPage);
-
+    
     if (_selected) {
         if (_page >= _totalCount) {
             return nil;
