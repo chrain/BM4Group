@@ -40,6 +40,7 @@ FOUNDATION_EXPORT const unsigned char BM4GroupVersionString[];
 #import <BM4Group/AccountHelper.h>
 
 #import <BM4Group/BMUtils.h>
+#import <BM4Group/BMMediator.h>
 #import <BM4Group/StoreUtility.h>
 
 #else
@@ -66,6 +67,7 @@ FOUNDATION_EXPORT const unsigned char BM4GroupVersionString[];
 #import "AccountHelper.h"
 
 #import "BMUtils.h"
+#import "BMMediator.h"
 #import "StoreUtility.h"
 
 #endif

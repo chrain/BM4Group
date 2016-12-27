@@ -50,6 +50,6 @@
 /**
  *  设置日志控制
  */
-+ (void)setupLog;
++ (void)setupLog NS_EXTENSION_UNAVAILABLE("由于Xcode8不支持插件，cosel颜色输出已无效");
 
 @end

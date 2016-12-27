@@ -14,15 +14,6 @@
 ///---------
 #if DEBUG
 
-#if __has_include(<BRCocoaLumberjack/BRCocoaLumberjack.h>)
-
-#define LOGGING
-#import <BRCocoaLumberjack/BRCocoaLumberjack.h>
-#define BMLog(...) DDLogDebug(__VA_ARGS__)
-#define BMError(...) DDLogError(__VA_ARGS__)
-
-#else
-
 #define XCODE_COLORS_ESCAPE @"\033["
 #define XCODE_COLORS_RESET_FG XCODE_COLORS_ESCAPE @"fg;" // Clear any foreground color
 #define XCODE_COLORS_RESET_BG XCODE_COLORS_ESCAPE @"bg;" // Clear any background color
@@ -30,8 +21,6 @@
 
 #define BMLog(frmt, ...) NSLog((XCODE_COLORS_ESCAPE @"fg31,81,255;" frmt XCODE_COLORS_RESET), ##__VA_ARGS__)
 #define BMError(frmt, ...) NSLog((XCODE_COLORS_ESCAPE @"fg255,0,0;" frmt XCODE_COLORS_RESET), ##__VA_ARGS__)
-
-#endif
 
 #else
 

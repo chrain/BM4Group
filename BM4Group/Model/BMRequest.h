@@ -66,12 +66,6 @@ typedef NS_ENUM(NSUInteger, BMRequestSerializerType) {
 @property (nonatomic, assign) BOOL ignoreCache;
 
 /**
- *  服务器返回内容包装key
- *  @see requestWithPath: contentKey:
- */
-@property (nonatomic, copy, readonly) NSString *contentKey;
-
-/**
  *  服务器返回的结果直接在result里
  *
  *  @param path 接口路径
@@ -79,16 +73,6 @@ typedef NS_ENUM(NSUInteger, BMRequestSerializerType) {
  *  @return 返回该请求对象
  */
 + (instancetype)requestWithPath:(NSString *)path;
-
-/**
- *  服务器返回的结果包装了一层
- *
- *  @param path 接口路径
- *  @param key  result内部包装的key
- *
- *  @return 返回该请求对象
- */
-+ (instancetype)requestWithPath:(NSString *)path contentKey:(NSString *)key;
 
 /// 添加当前接口过滤的Hook
 - (void)addIgonreHookClass:(Class)clazz;
